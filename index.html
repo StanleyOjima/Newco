@@ -256,6 +256,8 @@ a{color:inherit}
 
 
 
+
+
 /* ── Home · 01 Supply areas (light section) ───────── */
 .supply{--s-ground:#F2F3EF;--s-card:#FAFBF7;--s-ink:#162F31;--s-text:#4A5D5E;--s-line:rgba(22,47,49,.12);--s-line-2:rgba(22,47,49,.2);
   background:var(--s-ground);color:var(--s-ink);padding:clamp(80px,9vw,136px) 0 clamp(80px,9vw,128px);position:relative}
@@ -602,6 +604,8 @@ a{color:inherit}
 
 /* ── Home · 09 Mobile (phones are a first-class layout, not a squeezed desktop) ── */
 .mbar-wrap{display:contents}
+.badge .bd-s,.enq-tabs .ts{display:none}
+@media (max-width:760px){.badge .bd-l,.enq-tabs .tl{display:none}.badge .bd-s,.enq-tabs .ts{display:inline}}
 #labels .tag{opacity:0}
 .nav:not(.open) .mn-k,.nav:not(.open) .mn-areas,.nav:not(.open) .mn-contact,.nav:not(.open) .mn-gap{display:none}
 .mbar{display:none}
@@ -856,7 +860,7 @@ a{color:inherit}
 <section class="hero" aria-labelledby="hero-h">
   <div class="beams" aria-hidden="true"></div>
   <div class="hero-copy">
-    <div class="badge"><i></i>Equipment supply &amp; technology solutions · Nigeria</div>
+    <div class="badge"><i></i><span class="bd-l">Equipment supply &amp; technology solutions · Nigeria</span><span class="bd-s">Equipment supply &amp; technology</span></div>
     <h1 id="hero-h">Infrastructure equipment, sourced to specification.</h1>
     <p class="lead">NEWCO SOLUTION LTD is building supply routes for solar, communications, CNG and elevator equipment. Every enquiry starts with your specification and ends with responsibilities agreed in writing.</p>
     <div class="actions">
@@ -951,7 +955,7 @@ a{color:inherit}
       <p class="enq-eye"><i></i>Preparing an enquiry</p>
       <h2 id="enq-h">A clear enquiry gets a clear answer.</h2>
       <p class="enq-lead">Five answers are enough for us to start verifying a route. Pick an area to see which five. Missing some? Send what you have.</p>
-      <div class="enq-tabs" role="tablist" aria-label="Supply area"><button type="button" role="tab" aria-selected="true" data-a="solar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14 7 5h13l-3 9z M5.5 9.5h13 M12.5 5l-2 9 M10 14v5 M7 19h6"/></svg><span>Solar energy</span></button><button type="button" role="tab" aria-selected="false" data-a="comms"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7h8v14H8z M10 7V2 M10 11h4 M10 14h4 M10 17h4"/></svg><span>Business communications</span></button><button type="button" role="tab" aria-selected="false" data-a="cng"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7a4 2 0 0 1 8 0v12a4 2 0 0 1-8 0z M8 7a4 2 0 0 0 8 0 M11 2.5h2V5"/></svg><span>CNG equipment</span></button><button type="button" role="tab" aria-selected="false" data-a="lift"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h14v18H5z M12 3v18 M7.5 10.5 9 9l1.5 1.5 M13.5 13.5 15 15l1.5-1.5"/></svg><span>Elevators & vertical transport</span></button></div>
+      <div class="enq-tabs" role="tablist" aria-label="Supply area"><button type="button" role="tab" aria-selected="true" data-a="solar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14 7 5h13l-3 9z M5.5 9.5h13 M12.5 5l-2 9 M10 14v5 M7 19h6"/></svg><span class="tl">Solar energy</span><span class="ts">Solar</span></button><button type="button" role="tab" aria-selected="false" data-a="comms"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7h8v14H8z M10 7V2 M10 11h4 M10 14h4 M10 17h4"/></svg><span class="tl">Business communications</span><span class="ts">Communications</span></button><button type="button" role="tab" aria-selected="false" data-a="cng"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7a4 2 0 0 1 8 0v12a4 2 0 0 1-8 0z M8 7a4 2 0 0 0 8 0 M11 2.5h2V5"/></svg><span class="tl">CNG equipment</span><span class="ts">CNG</span></button><button type="button" role="tab" aria-selected="false" data-a="lift"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h14v18H5z M12 3v18 M7.5 10.5 9 9l1.5 1.5 M13.5 13.5 15 15l1.5-1.5"/></svg><span class="tl">Elevators & vertical transport</span><span class="ts">Elevators</span></button></div>
     </div>
     <div class="enq-vis">
       <div class="sheet" role="tabpanel" aria-live="polite">
@@ -1817,6 +1821,14 @@ a{color:inherit}
 
 
 
+
+
+
+
+
+
+
+
 <script>
 (function(){var w=document.querySelector('.work');if(!w)return;
   var ex=w.querySelector('.wexp'),rows=[].slice.call(w.querySelectorAll('.wrow')),sc=[].slice.call(w.querySelectorAll('.wsc')),cap=[].slice.call(w.querySelectorAll('.wcap-t')),dots=[].slice.call(w.querySelectorAll('.wdots i'));
@@ -1879,12 +1891,6 @@ new IntersectionObserver(function(en,o){if(en[0].isIntersecting){s.classList.add
       cards.forEach(function(c,i){var n=cards[i+1];c.classList.toggle('under',!!n&&n.getBoundingClientRect().top<c.getBoundingClientRect().top+c.offsetHeight*.55)})}
     addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(stack)}},{passive:true});stack()}
 
-  // hero eyebrow: one short line on phones
-  var bd=document.querySelector('.hero .badge');if(bd){var BL=bd.innerHTML;function bdl(){bd.innerHTML=mq.matches?'<i></i>Equipment supply &amp; technology':BL}bdl();(mq.addEventListener?mq.addEventListener('change',bdl):mq.addListener(bdl))}
-  // enquiry area picker: short labels on phones so all four fit in a 2x2 grid
-  var tb=[].slice.call(document.querySelectorAll('.enq-tabs button span')),SHORT=['Solar','Communications','CNG','Elevators'],LONG=tb.map(function(s){return s.textContent});
-  function lbl(){tb.forEach(function(s,i){s.textContent=mq.matches?(SHORT[i]||LONG[i]):LONG[i]})}
-  if(tb.length){lbl();(mq.addEventListener?mq.addEventListener('change',lbl):mq.addListener(lbl))}
   // how we work: swipe the drawing to change step, with a small step marker
   var st=document.querySelector('.wstage'),rows=[].slice.call(document.querySelectorAll('.wrow'));
   if(st&&rows.length){var sw=document.createElement('div');sw.className='wsw';sw.setAttribute('aria-hidden','true');sw.innerHTML=rows.map(function(){return '<i></i>'}).join('');st.appendChild(sw);
