@@ -259,6 +259,17 @@ a{color:inherit}
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 /* ── Home · 04 FAQ · 05 CTA · Footer ─────────────── */
 .prt{background:#E3EFE5;color:#162F31;padding:clamp(88px,9vw,136px) 0}
 .prt-wrap{padding:0 var(--edge);display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(16px,1.8vw,24px);align-items:stretch}
@@ -284,6 +295,7 @@ a{color:inherit}
 .prt-k{margin:0 0 8px;font:500 11px/1 var(--f-mono);letter-spacing:.16em;text-transform:uppercase;color:#2E8A5A}
 .prt-k.sub{margin-top:clamp(36px,4vw,52px);margin-bottom:18px}
 .prt-steps{list-style:none;margin:0;padding:0}
+.prt-more{display:inline-flex;align-items:center;gap:10px;margin:22px 0 4px;color:#162F31;font:500 15px/1 var(--f-sans);text-decoration:none;border-bottom:1px solid rgba(46,138,90,.5);padding-bottom:6px}.prt-more svg{width:15px;height:15px;transition:transform .25s ease}.prt-more:hover svg{transform:translateX(4px)}
 .prt-steps li{display:grid;grid-template-columns:clamp(64px,7vw,104px) minmax(0,1fr) auto;gap:20px;align-items:start;padding:26px 0;border-bottom:1px solid rgba(22,47,49,.12);transition:background .25s ease}
 .prt-steps .n{font:300 clamp(2.6rem,4.4vw,3.9rem)/.85 var(--f-sans);letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1px rgba(22,47,49,.35)}
 .prt-steps li:hover .n{color:#73D199;-webkit-text-stroke-color:#73D199}
@@ -304,29 +316,26 @@ a{color:inherit}
 .team-head{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:24px clamp(32px,6vw,96px);align-items:end;margin-bottom:clamp(44px,5vw,72px)}
 .team h2{font:400 clamp(2.3rem,4.6vw,4.3rem)/1.03 var(--f-sans);letter-spacing:-.045em;margin:0;max-width:14ch}
 .team-lead{margin:0;font-size:clamp(1rem,1.2vw,1.12rem);line-height:1.6;color:rgba(244,243,238,.7);max-width:44ch}
-.team-strip{list-style:none;margin:0;padding:0;display:flex;gap:1px;background:rgba(244,243,238,.1);border:1px solid rgba(244,243,238,.1);height:clamp(460px,40vw,600px)}
-.tm{position:relative;flex:1 1 0;min-width:0;overflow:hidden;outline:none;cursor:default;
-  background:radial-gradient(ellipse 90% 70% at 50% 32%,#2C4A4A 0%,#1C3436 55%,#122627 100%);transition:flex-grow .7s cubic-bezier(.2,.7,.2,1)}
-.tm img{position:absolute;left:50%;bottom:0;height:92%;width:auto;max-width:none;transform:translateX(-50%);
+.team-strip{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:rgba(244,243,238,.1);border:1px solid rgba(244,243,238,.1)}
+.tm{position:relative;height:clamp(420px,36vw,540px);min-width:0;overflow:hidden;outline:none;cursor:default;
+  background:radial-gradient(ellipse 90% 70% at 50% 32%,#2C4A4A 0%,#1C3436 55%,#122627 100%);transition:background .5s ease}
+.tm img{position:absolute;left:50%;bottom:0;width:100%;max-width:470px;height:auto;transform:translateX(-50%);
   filter:grayscale(1) contrast(1.08) brightness(.97);transition:filter .6s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
 .tm::after{content:"";position:absolute;inset:auto 0 0 0;height:46%;z-index:2;pointer-events:none;background:linear-gradient(180deg,rgba(18,40,41,0) 0%,rgba(18,40,41,.78) 70%,rgba(18,40,41,.92) 100%)}
 .tm-i{position:absolute;top:22px;left:24px;z-index:3;font:500 11px/1 var(--f-mono);letter-spacing:.14em;color:rgba(244,243,238,.55)}
 .tm-i::before{content:"";display:block;width:3px;height:22px;background:#73D199;margin-bottom:12px;transform:scaleY(.4);transform-origin:top;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
 .tm-tx{position:absolute;left:24px;right:24px;bottom:24px;z-index:3}
-.tm-tx h3{font:400 clamp(1.1rem,1.5vw,1.45rem)/1.2 var(--f-sans);letter-spacing:-.02em;margin:0 0 8px;color:var(--paper)}
+.tm-tx h3{font:400 clamp(1.15rem,1.6vw,1.55rem)/1.2 var(--f-sans);max-width:20ch;letter-spacing:-.02em;margin:0 0 8px;color:var(--paper)}
 .tm-tx p{margin:0;font:500 11px/1.5 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:#73D199}
 @media (hover:hover){
-  .team-strip:hover .tm{flex-grow:.8}
-  .team-strip .tm:hover,.team-strip .tm:focus-visible{flex-grow:1.9}
   .tm:hover img,.tm:focus-visible img{filter:none;transform:translateX(-50%) scale(1.02)}
   .tm:hover .tm-i::before,.tm:focus-visible .tm-i::before{transform:scaleY(1)}
 }
 @media (hover:none){.tm img{filter:none}}
 @media (prefers-reduced-motion:reduce){.tm,.tm img{transition:none}}
 @media (max-width:860px){.team-head{grid-template-columns:1fr}
-  .team-strip{height:auto;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin:0 calc(var(--edge) * -1);border-left:0;border-right:0}
-  .team-strip::-webkit-scrollbar{display:none}
-  .tm{flex:0 0 78%;height:clamp(400px,110vw,520px);scroll-snap-align:start}
+  .team-strip{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tm{height:clamp(380px,60vw,480px)}
   .tm img{filter:none}}
 .faq{background:#F2F3EF;color:#162F31;padding:clamp(88px,9vw,136px) 0}
 .faq-wrap{padding:0 var(--edge);display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(40px,6vw,104px)}
@@ -527,6 +536,7 @@ a{color:inherit}
   .prt-bring li{flex-direction:column;align-items:flex-start;gap:12px;padding:14px;font-size:14px;line-height:1.35}
 
   /* 05 leadership: calm rows, portrait beside name and role */
+  .steps button{min-height:42px}
   .team-strip{display:flex;flex-direction:column;gap:8px;height:auto;overflow:visible;margin:0;padding:0;border:0;background:none}
   .tm{display:grid;grid-template-columns:112px minmax(0,1fr);align-items:center;gap:20px;height:auto;aspect-ratio:auto;padding:0 18px 0 0;background:rgba(244,243,238,.05);overflow:hidden}
   .tm::after{display:none}
@@ -787,13 +797,13 @@ a{color:inherit}
 
 /* on white: a raised sheet for the form, a dark document for the draft */
 .pf .pf-f{background:#fff;border:1px solid rgba(22,47,49,.1);box-shadow:0 50px 90px -70px rgba(22,47,49,.45)}
-.pf .fl input,.pf .fl textarea{background:#F5F6F2;border-color:transparent}
-.pf .fl input:hover,.pf .fl textarea:hover{border-color:rgba(22,47,49,.16)}
+.pf .fl input,.pf .fl textarea{background:#FAFBF8;border-color:rgba(22,47,49,.16)}
+.pf .fl input:hover,.pf .fl textarea:hover{border-color:rgba(22,47,49,.34)}
 .pf .fl input:focus,.pf .fl textarea:focus{background:#fff;border-color:#2E8A5A}
 .pf .fl.bad input,.pf .fl.bad textarea{border-color:#B4483A;background:#fff}
-.pf .op-b,.pf .ch span{background:#F5F6F2;border-color:transparent}
-.pf .op:hover .op-b,.pf .ch:hover span{border-color:rgba(22,47,49,.25)}
-.pf .op-i{background:#fff}
+.pf .op-b,.pf .ch span{background:#FAFBF8;border-color:rgba(22,47,49,.13)}
+.pf .op:hover .op-b,.pf .ch:hover span{border-color:rgba(22,47,49,.34)}
+.pf .op-i{background:#E3EFE5}
 .pf .op input:checked+.op-b .op-i{background:#73D199}
 .pf .pf-g.bad .op-b,.pf .pf-g.bad .ch span{border-color:rgba(180,72,58,.5)}
 .pf .pvw{background:#162F31;color:#F4F3EE;box-shadow:0 40px 70px -45px rgba(22,47,49,.6)}
@@ -854,11 +864,11 @@ a{color:inherit}
       <a href="about.html">About</a>
       <a href="supply-areas.html">Supply areas</a>
       <a href="partnerships.html" aria-current="page">Partnerships</a>
-      <a href="#contact">Contact</a>
-      <a class="xbtn sm" href="#quote" hidden><span class="l">Request a quote</span><span class="a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></a>
+      <a href="contact.html">Contact</a>
+      <a class="xbtn sm" href="request-a-quote.html" hidden><span class="l">Request a quote</span><span class="a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></a>
     </nav>
     <div class="cell cta-cell">
-      <a class="xbtn sm" href="#quote"><span class="l">Request a quote</span><span class="a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></a>
+      <a class="xbtn sm" href="request-a-quote.html"><span class="l">Request a quote</span><span class="a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></a>
       <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 7h18"/><path d="M3 12h18"/><path d="M3 17h18"/></svg></button>
     </div>
   </div>
@@ -947,7 +957,7 @@ a{color:inherit}
       <fieldset class="pf-g"><legend class="pf-l"><span>04</span>About your company and products</legend>
         <label class="fl"><span class="sr">About your company and products</span><textarea name="about" rows="5" required placeholder="What you make or provide, key certifications, and the market you have in mind."></textarea></label>
       </fieldset>
-      <label class="pf-consent"><input type="checkbox" name="consent" required><span>I agree that NEWCO SOLUTION LTD may use these details to respond to this enquiry, as described in the <a href="#privacy">privacy notice</a>.</span></label>
+      <label class="pf-consent"><input type="checkbox" name="consent" required><span>I agree that NEWCO SOLUTION LTD may use these details to respond to this enquiry, as described in the <a href="privacy.html">privacy notice</a>.</span></label>
       <p class="pf-err" role="alert" hidden></p>
       <div class="pf-go"><button type="submit" class="xbtn dk"><span class="l">Send partner enquiry</span><span class="a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></button><small>An enquiry creates no dealership, authorisation or exclusivity.</small></div>
       <div class="pf-done" hidden><span class="pf-dk" aria-hidden="true"></span><h3>Your enquiry is ready.</h3><p>Your email app has opened with the enquiry written out. Send it from there and we will reply to arrange an introduction where there is a fit.</p><p class="pf-alt">Nothing opened? Email <a href="mailto:partnerships@newcosolutions.org">partnerships@newcosolutions.org</a>.</p></div>
@@ -959,7 +969,7 @@ a{color:inherit}
 <section class="faq" id="questions" aria-labelledby="pq-h">
   <div class="faq-wrap">
     <div class="faq-side"><p class="ab-eye"><i></i>Questions</p><h2 id="pq-h">Before you<br>get in touch</h2>
-      <p class="faq-more"><span>Something else?</span> <a href="#contact">Ask us directly</a></p></div>
+      <p class="faq-more"><span>Something else?</span> <a href="contact.html">Ask us directly</a></p></div>
     <div class="faq-list"><details class="fq" open><summary><span>Does an enquiry create a dealership or exclusivity?</span><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></i></summary><div class="fa"><p>No. An enquiry is the start of a conversation. A dealership, authorisation or exclusivity exists only once terms are agreed, approved by the company and signed.</p></div></details><details class="fq"><summary><span>Will you sign an NDA?</span><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></i></summary><div class="fa"><p>Yes, where appropriate. Product, company and commercial information can be exchanged under a non-disclosure agreement at the information-exchange stage.</p></div></details><details class="fq"><summary><span>Which categories are you looking for?</span><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></i></summary><div class="fa"><p>Solar energy equipment, CNG equipment, and elevators and vertical transport. Business communications is under review, and we are happy to hear from suitable partners in that area.</p></div></details><details class="fq"><summary><span>What happens after I send an enquiry?</span><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></i></summary><div class="fa"><p>We read every enquiry against our supply areas. Where there is a fit, we contact you to arrange an introduction call, which is stage one.</p></div></details></div>
   </div>
 </section>
@@ -971,7 +981,7 @@ a{color:inherit}
     <p>Start with an introduction. Tell us what you make or provide, and we will tell you plainly whether it fits our supply areas.</p>
     <div class="cta2-act">
       <a class="xbtn" href="#partner-form"><span class="l">Start a partnership conversation</span><span class="a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></a>
-      <a class="gbtn" href="#quote">Looking to buy? Request a quote</a>
+      <a class="gbtn" href="request-a-quote.html">Looking to buy? Request a quote</a>
     </div>
   </div>
   <div class="mf" aria-hidden="true"><div class="mf-row" style="--r:0"></div><div class="mf-row" style="--r:1"></div><div class="mf-row" style="--r:2"></div><div class="mf-row" style="--r:3"></div><div class="mf-row" style="--r:4"></div><div class="mf-row" style="--r:5"></div><div class="mf-row" style="--r:6"></div><span class="mf-bar"></span><span class="mf-glow"></span></div>
@@ -980,7 +990,7 @@ a{color:inherit}
 <!-- ── Home · 09 Mobile bar ─────────────────────────── -->
 <section class="mbar-wrap" aria-label="Quick actions">
   <div class="mbar" id="mbar">
-    <a class="xbtn mbar-q" href="#quote"><span class="l">Request a quote</span><span class="a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></a>
+    <a class="xbtn mbar-q" href="request-a-quote.html"><span class="l">Request a quote</span><span class="a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></a>
     <a class="mbar-call" href="tel:+2348133657572" aria-label="Call NewCo Solutions"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/></svg></a>
   </div>
 </section>
@@ -989,9 +999,9 @@ a{color:inherit}
 <footer class="ft">
   <div class="ft-top">
     <div class="ft-about"><p>Equipment sourcing, supply and technology-support solutions for businesses, institutions and projects in Nigeria.</p></div>
-    <nav class="ft-col" aria-label="Supply areas"><h4>Supply areas</h4><a href="#solar">Solar energy</a><a href="#communications">Business communications</a><a href="#cng">CNG equipment</a><a href="#elevators">Elevators &amp; vertical transport</a></nav>
-    <nav class="ft-col" aria-label="Company"><h4>Company</h4><a href="about.html">About</a><a href="#how">How we work</a><a href="partnerships.html">Partnerships</a><a href="#contact">Contact</a></nav>
-    <nav class="ft-col" aria-label="Legal"><h4>Legal</h4><a href="#privacy">Privacy notice</a><a href="#cookies">Cookie notice</a></nav>
+    <nav class="ft-col" aria-label="Supply areas"><h4>Supply areas</h4><a href="supply-areas.html#solar">Solar energy</a><a href="supply-areas.html#communications">Business communications</a><a href="supply-areas.html#cng">CNG equipment</a><a href="supply-areas.html#elevators">Elevators &amp; vertical transport</a></nav>
+    <nav class="ft-col" aria-label="Company"><h4>Company</h4><a href="about.html">About</a><a href="index.html#how">How we work</a><a href="partnerships.html">Partnerships</a><a href="contact.html">Contact</a></nav>
+    <nav class="ft-col" aria-label="Legal"><h4>Legal</h4><a href="privacy.html">Privacy notice</a></nav>
   </div>
   <div class="ft-mark"><span class="ft-logo"><svg viewBox="0 -14 100 114" aria-hidden="true"><rect x="0" y="0" width="100" height="100" rx="10" fill="#22403F"/><rect x="47" y="-12" width="6" height="84" fill="#73D199"/></svg></span><span class="ft-word">NewCo Solutions</span></div>
   <div class="ft-ticks" aria-hidden="true"></div>
@@ -1009,6 +1019,50 @@ a{color:inherit}
 
 })();
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
