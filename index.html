@@ -293,6 +293,13 @@ a{color:inherit}
 
 
 
+
+
+
+
+
+
+
 /* ── Home · 01 Supply areas (light section) ───────── */
 .supply{--s-ground:#F2F3EF;--s-card:#FAFBF7;--s-ink:#162F31;--s-text:#4A5D5E;--s-line:rgba(22,47,49,.12);--s-line-2:rgba(22,47,49,.2);
   background:var(--s-ground);color:var(--s-ink);padding:clamp(80px,9vw,136px) 0 clamp(80px,9vw,128px);position:relative}
@@ -530,7 +537,14 @@ a{color:inherit}
 .prt-eye i{width:6px;height:6px;background:#73D199}
 .prt h2{font:400 clamp(2.2rem,4vw,3.7rem)/1.03 var(--f-sans);letter-spacing:-.045em;margin:0 0 24px;max-width:12ch}
 .prt-copy{margin:0 0 32px;font-size:clamp(1rem,1.15vw,1.08rem);line-height:1.6;color:rgba(244,243,238,.72);max-width:42ch}
-.prt-route{margin-top:auto;padding-top:clamp(40px,5vw,72px);width:100%}
+.prt-who{list-style:none;margin:0;padding:0}
+.prt-who li{display:grid;grid-template-columns:52px minmax(0,1fr);gap:22px;align-items:start;padding:24px 0;border-bottom:1px solid rgba(22,47,49,.12)}
+.prt-who li:first-child{padding-top:6px}
+.pw-i{display:grid;place-items:center;width:52px;height:52px;background:#E3EFE5;transition:background .25s ease}
+.pw-i svg{width:23px;height:23px;fill:none;stroke:#162F31;stroke-width:1.7;stroke-linecap:square;stroke-linejoin:miter}
+.prt-who li:hover .pw-i{background:#73D199}
+.prt-who h3{font:400 clamp(1.25rem,1.7vw,1.55rem)/1.15 var(--f-sans);letter-spacing:-.025em;margin:4px 0 8px}
+.prt-who p{margin:0;font-size:15px;line-height:1.6;color:#4A5D5E;max-width:46ch}
 .prt-route svg{display:block;width:100%;height:auto;overflow:visible}
 .rt-ln{fill:none;stroke-width:1.4}.rt-ln.dash{stroke:rgba(244,243,238,.3);stroke-dasharray:3 5}
 .rt-ln.go{stroke:#73D199;stroke-width:2;stroke-dasharray:100;stroke-dashoffset:100;transition:stroke-dashoffset 1.2s cubic-bezier(.65,0,.35,1) .3s}
@@ -543,8 +557,24 @@ a{color:inherit}
 .rt-hub rect{fill:#22403F;stroke:rgba(115,209,153,.35);stroke-width:1}.rt-hub .bar{fill:#73D199;stroke:none}
 .rt-lbl{font:500 9.5px/1 var(--f-mono);letter-spacing:.14em;fill:rgba(244,243,238,.5)}
 .prt-panel{background:#FAFBF7;border:1px solid rgba(22,47,49,.12);padding:clamp(28px,3.2vw,48px) clamp(24px,3.2vw,48px)}
+/* the five stages, as a track inside the dark panel */
+.prt-track{display:block;width:100%;margin:auto 0 clamp(28px,3vw,36px);padding-top:clamp(36px,4vw,56px);color:inherit;text-decoration:none}
+.pt-h{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:18px;font:500 10.5px/1 var(--f-mono);letter-spacing:.16em;text-transform:uppercase;color:rgba(244,243,238,.5)}
+.pt-h b{display:inline-flex;align-items:center;gap:8px;font-weight:500;color:#73D199}
+.pt-h b i{display:grid;transition:transform .25s ease}.pt-h b svg{width:13px;height:13px}
+.prt-track:hover .pt-h b i{transform:translateX(4px)}
+.prt-track ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));position:relative}
+.prt-track ol::before{content:"";position:absolute;left:14px;right:calc(20% - 14px);top:14px;height:1px;background:rgba(244,243,238,.18)}
+.prt-track ol::after{content:"";position:absolute;left:14px;right:calc(20% - 14px);top:14px;height:1px;background:#73D199;transform:scaleX(0);transform-origin:left;transition:transform 1.4s cubic-bezier(.65,0,.35,1)}
+.prt.in .prt-track ol::after,.prt-track:hover ol::after{transform:scaleX(1)}
+.prt-track li{position:relative;display:flex;flex-direction:column;gap:12px}
+.pt-n{position:relative;z-index:1;display:grid;place-items:center;width:29px;height:29px;background:#162F31;border:1px solid rgba(244,243,238,.25);font:500 10px/1 var(--f-mono);color:rgba(244,243,238,.8);transition:background .3s ease,border-color .3s ease,color .3s ease;transition-delay:calc(var(--k) * .22s)}
+.prt.in .pt-n,.prt-track:hover .pt-n{border-color:#73D199;color:#73D199}
+.prt-track li:last-child .pt-n{background:#73D199;border-color:#73D199;color:#162F31}
+.pt-l{font-size:13.5px;line-height:1.3;color:rgba(244,243,238,.75)}
+@media (min-width:1025px){.prt-lead .xbtn{margin-top:0}}
 .prt-k{margin:0 0 8px;font:500 11px/1 var(--f-mono);letter-spacing:.16em;text-transform:uppercase;color:#2E8A5A}
-.prt-k.sub{margin-top:clamp(36px,4vw,52px);margin-bottom:18px}
+.prt-k.sub{margin-top:clamp(32px,3.6vw,44px);margin-bottom:18px}
 .prt-steps{list-style:none;margin:0;padding:0}
 .prt-more{display:inline-flex;align-items:center;gap:10px;margin:22px 0 4px;color:#162F31;font:500 15px/1 var(--f-sans);text-decoration:none;border-bottom:1px solid rgba(46,138,90,.5);padding-bottom:6px}.prt-more svg{width:15px;height:15px;transition:transform .25s ease}.prt-more:hover svg{transform:translateX(4px)}
 .prt-steps li{display:grid;grid-template-columns:clamp(64px,7vw,104px) minmax(0,1fr) auto;gap:20px;align-items:start;padding:26px 0;border-bottom:1px solid rgba(22,47,49,.12);transition:background .25s ease}
@@ -585,7 +615,12 @@ a{color:inherit}
   .tm:hover .tm-i::before,.tm:focus-visible .tm-i::before{transform:scaleY(1)}
 }
 /* a bright phone photo: only its black-and-white state is toned down; the colour version stays original */
-@media (hover:hover){.tm[data-k=usman]:not(:hover):not(:focus-visible) img{filter:grayscale(1) contrast(1.15) brightness(.7)}}
+.tm.has-bw img:not(.tm-bw){filter:none;opacity:0;transition:opacity .6s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.tm.has-bw .tm-bw{filter:none}
+@media (hover:hover){.tm.has-bw:hover img:not(.tm-bw),.tm.has-bw:focus-visible img:not(.tm-bw){opacity:1}.tm.has-bw:hover .tm-bw,.tm.has-bw:focus-visible .tm-bw{transform:translateX(-50%) scale(1.02)}}
+@media (hover:none){.tm.has-bw img:not(.tm-bw){opacity:1}}
+/* a bright phone photo: a gentler grey so it sits with the studio portraits; colour on hover is the untouched original */
+@media (hover:hover){.tm[data-k=usman]:not(:hover):not(:focus-visible) img{filter:grayscale(1) contrast(1.1) brightness(.86)}}
 @media (hover:none){.tm img{filter:none}}
 @media (prefers-reduced-motion:reduce){.tm,.tm img{transition:none}}
 @media (max-width:860px){.team-head{grid-template-columns:1fr}
@@ -777,8 +812,15 @@ a{color:inherit}
 
   /* 04 partnerships: a timeline and a compact grid */
   .prt-lead{padding:30px 22px 26px}
-  .prt-route{padding-top:34px;margin:0 -6px}
-  .prt-route .rt-lbl{font-size:12.5px;letter-spacing:.1em}
+  .prt-track{margin:0 0 26px;padding-top:30px}
+  .pt-h{font-size:10px;letter-spacing:.12em;white-space:nowrap;margin-bottom:16px}
+  .prt-track ol{grid-template-columns:1fr;row-gap:10px}
+  .prt-track li{flex-direction:row;align-items:center;gap:14px}
+  .pt-l{font-size:14.5px}
+  .pt-n{width:28px;height:28px}
+  .prt-track ol::before,.prt-track ol::after{left:14px;right:auto;top:14px;bottom:14px;width:1px;height:auto;transform-origin:top}
+  .prt-track ol::after{transform:scaleY(0)}.prt.in .prt-track ol::after{transform:scaleY(1)}
+  .prt-who li{grid-template-columns:44px minmax(0,1fr);gap:16px;padding:18px 0}.pw-i{width:44px;height:44px}.pw-i svg{width:20px;height:20px}.prt-who h3{font-size:1.2rem;margin:2px 0 6px}.prt-who p{font-size:14.5px}
   .prt h2{font-size:2.15rem}
   .prt-copy{font-size:15.5px;margin-bottom:26px}
 
@@ -810,8 +852,13 @@ a{color:inherit}
     filter:grayscale(1) contrast(1.08) brightness(.97);transition:filter .5s ease}
   .team-strip .tm:nth-child(-n+3) img{aspect-ratio:5 / 4;object-position:50% 30%}
   .team-strip .tm:nth-child(1) img{object-position:50% 49%}.team-strip .tm:nth-child(2) img{object-position:50% 45%}.team-strip .tm:nth-child(3) img{object-position:50% 32%}
-  .team-strip .tm[data-k=usman] img{filter:grayscale(1) contrast(1.15) brightness(.7)}
-  .team-strip .tm:focus img,.team-strip .tm:active img,.team-strip .tm[data-k=usman]:focus img,.team-strip .tm[data-k=usman]:active img{filter:none}
+  .team-strip .tm[data-k=usman] img{filter:grayscale(1) contrast(1.1) brightness(.86)}
+  .team-strip .tm[data-k=usman]:focus img,.team-strip .tm[data-k=usman]:active img{filter:none}
+  .team-strip .tm.has-bw{position:relative}
+  .team-strip .tm.has-bw img:not(.tm-bw){position:absolute!important;left:0!important;top:0;filter:none!important;opacity:0}
+  .team-strip .tm.has-bw .tm-bw{filter:none!important}
+  .team-strip .tm.has-bw:focus img:not(.tm-bw),.team-strip .tm.has-bw:active img:not(.tm-bw){opacity:1}
+  .team-strip .tm:focus img,.team-strip .tm:active img{filter:none}
   .tm-i{display:none}
   .team-strip .tm:nth-child(n) .tm-tx{position:relative;left:auto;right:auto;bottom:auto;margin-top:-1px;padding:14px 14px 16px;background:#1C3436;border-top:2px solid #73D199;flex:1}
   .team-strip .tm:nth-child(n) .tm-tx h3{font-size:.98rem;line-height:1.28;margin:0 0 8px;max-width:none}
@@ -885,6 +932,62 @@ a{color:inherit}
   @keyframes eqdIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 }
 @media (max-width:760px) and (prefers-reduced-motion:reduce){.eqd-r{animation:none}}
+
+/* ── Preparing an enquiry · desktop spec strip ───── */
+.eqs{display:none}
+@media (min-width:761px){
+  .enq .enq-wrap{display:block}
+  .enq .enq-vis{display:none!important}
+  .enq .enq-copy{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);column-gap:clamp(32px,6vw,96px);align-items:end}
+  .enq .enq-eye{grid-column:1;grid-row:1}
+  .enq #enq-h{grid-column:1;grid-row:2;max-width:12.5ch}
+  .enq .enq-lead{grid-column:2;grid-row:2;margin:0;max-width:44ch}
+  .enq .enq-tabs{grid-column:1 / -1;grid-row:3;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;max-width:none;margin:clamp(40px,4.5vw,64px) 0 0;border:1px solid rgba(22,47,49,.14);border-bottom:0;background:#FAFBF7}
+  .enq .enq-tabs button{position:relative;justify-content:flex-start;height:64px;padding:0 22px;border:0!important;border-right:1px solid rgba(22,47,49,.12)!important;background:none!important;color:#4A5D5E;clip-path:none!important;font-size:15.5px;gap:14px;transition:color .2s ease,background .2s ease}
+  .enq .enq-tabs button:last-child{border-right:0!important}
+  .enq .enq-tabs button::before,.enq .enq-tabs button::after{display:none!important}
+  .enq .enq-tabs button svg{width:20px;height:20px;stroke:#4A5D5E}
+  .enq .enq-tabs button:hover{color:#162F31;background:#F2F5F0!important}
+  .enq .enq-tabs button[aria-selected=true]{background:#162F31!important;color:#F4F3EE}
+  .enq .enq-tabs button[aria-selected=true] svg{stroke:#73D199}
+  .enq .enq-tabs button[aria-selected=true] .eqs-tk{transform:scaleX(1)}
+  .eqs-tk{position:absolute;left:0;right:0;bottom:-1px;height:3px;background:#73D199;transform:scaleX(0);transform-origin:left;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+  .enq .enq-tabs .tl{display:inline}.enq .enq-tabs .ts{display:none}
+
+  .eqs{display:block;--cut:22px;background:#FAFBF7;border:1px solid rgba(22,47,49,.14);clip-path:polygon(0 0,100% 0,100% calc(100% - var(--cut)),calc(100% - var(--cut)) 100%,0 100%)}
+  .eqs-top{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:20px 26px;border-bottom:1px solid rgba(22,47,49,.1);font:500 11px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:#4A5D5E}
+  .eqs-top b{font-weight:500;color:#2E8A5A}
+  .eqs-dots{display:flex;align-items:center;gap:6px}.eqs-dots i{width:22px;height:3px;background:#73D199;transform:scaleX(0);transform-origin:left;transition:transform .35s ease;transition-delay:calc(var(--k) * 90ms + .2s)}
+  .eqs.in .eqs-dots i{transform:scaleX(1)}
+  .eqs-l{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr))}
+  .eqs-c{position:relative;display:flex;flex-direction:column;padding:28px 24px 26px;border-right:1px solid rgba(22,47,49,.1);transition:background .3s ease;animation:eqsIn .5s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--k) * 60ms)}
+  .eqs-c:last-child{border-right:0}
+  .eqs-c:hover{background:#fff}
+  .eqs-h{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:34px}
+  .eqs-i{display:grid;place-items:center;width:48px;height:48px;background:#E3EFE5;transition:background .3s ease}
+  .eqs-c:hover .eqs-i{background:#73D199}
+  .eqs-i svg{width:22px;height:22px;fill:none;stroke:#162F31;stroke-width:1.7;stroke-linecap:square;stroke-linejoin:miter}
+  .eqs-n{font:500 10.5px/1 var(--f-mono);letter-spacing:.12em;color:rgba(22,47,49,.4)}
+  .eqs-c h3{margin:0 0 8px;font:400 clamp(1.2rem,1.5vw,1.4rem)/1.15 var(--f-sans);letter-spacing:-.025em;color:#162F31}
+  .eqs-c p{margin:0 0 22px;font-size:14.5px;line-height:1.5;color:#4A5D5E}
+  .eqs-ex{margin-top:auto;padding-top:16px;border-top:1px dashed rgba(22,47,49,.18)}
+  .eqs-ex small{display:block;margin-bottom:7px;font:500 10px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:#2E8A5A}
+  .eqs-ex span{display:block;font:400 14.5px/1.4 var(--f-sans);color:#162F31}
+  .eqs-ft{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:18px 18px 18px 26px;background:#162F31;color:rgba(244,243,238,.75);font-size:15px}
+  .eqs-ft b{font-weight:400;color:#F4F3EE}
+  .eqs-ft .xbtn{flex:none}
+  .enq .eqs-ft .xbtn{color:#162F31}.enq .eqs-ft .xbtn::before{background:#F4F3EE}.enq .eqs-ft .xbtn .a{background:#73D199;color:#162F31}
+  @keyframes eqsIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+}
+@media (min-width:761px) and (max-width:1100px){
+  .eqs-l{grid-template-columns:repeat(6,minmax(0,1fr))}
+  .eqs-c{grid-column:span 2;border-bottom:1px solid rgba(22,47,49,.1)}
+  .eqs-c:nth-child(4),.eqs-c:nth-child(5){grid-column:span 3;border-bottom:0}
+  .eqs-c:nth-child(3){border-right:0}
+  .enq .enq-copy{grid-template-columns:1fr}.enq .enq-lead{grid-column:1;grid-row:3;margin-top:20px}.enq .enq-tabs{grid-row:4}
+  .enq .enq-tabs button{padding:0 14px;font-size:14px}
+}
+@media (prefers-reduced-motion:reduce){.eqs-c{animation:none}}
 </style>
 </head>
 <body>
@@ -1034,17 +1137,15 @@ a{color:inherit}
       <p class="prt-eye"><i></i>Partnerships</p>
       <h2 id="prt-h">For manufacturers entering Nigeria.</h2>
       <p class="prt-copy">We partner with manufacturers and OEMs whose equipment fits our four supply areas. Together we build a structured route to market in Nigeria, covering approvals, qualified local installers and after-sales support, with every responsibility agreed in writing.</p>
+      <a class="prt-track" href="partnerships.html#stages" aria-label="How a partnership is formed: five stages">
+        <span class="pt-h"><span>How a partnership is formed</span><b>Five stages<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></i></b></span>
+        <ol><li style="--k:0"><span class="pt-n">01</span><span class="pt-l">Introduction</span></li><li style="--k:1"><span class="pt-n">02</span><span class="pt-l">Exchange</span></li><li style="--k:2"><span class="pt-n">03</span><span class="pt-l">Diligence</span></li><li style="--k:3"><span class="pt-n">04</span><span class="pt-l">Terms</span></li><li style="--k:4"><span class="pt-n">05</span><span class="pt-l">Approval</span></li></ol>
+      </a>
       <a class="xbtn" href="partnerships.html"><span class="l">Partner with us</span><span class="a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></a>
-      <div class="prt-route" aria-hidden="true"><svg viewBox="0 0 440 130"><path class="rt-ln dash" d="M73 70H191"/><path class="rt-ln go" pathLength="100" d="M249 70H367"/><rect class="rt-port" x="70" y="67" width="6" height="6"/><rect class="rt-port" x="188" y="67" width="6" height="6"/><rect class="rt-port" x="246" y="67" width="6" height="6"/><rect class="rt-port" x="364" y="67" width="6" height="6"/><g class="rt-tile "><rect x="27" y="47" width="46" height="46" rx="2"/><g transform="translate(39.0 59.0) scale(0.917)"><path class="ic" d="M3 21V11l5 3v-3l5 3V8l8 4v9z M3 21h18 M15 17h2 M10 17h2"/></g></g><text class="rt-lbl" x="50" y="114" text-anchor="middle">YOUR RANGE</text><g class="rt-hub"><rect x="191" y="41" width="58" height="58" rx="6"/><rect class="bar" x="218.3" y="33" width="3.4" height="50"/></g><text class="rt-lbl" x="220" y="114" text-anchor="middle">NEWCO</text><g class="rt-tile acc"><rect x="367" y="47" width="46" height="46" rx="2"/><g transform="translate(379.0 59.0) scale(0.917)"><path class="ic" d="M12 21s-6-6.2-6-11a6 6 0 0 1 12 0c0 4.8-6 11-6 11z M12 12.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></g></g><text class="rt-lbl" x="390" y="114" text-anchor="middle">BUYERS IN NIGERIA</text></svg></div>
     </div>
     <div class="prt-panel">
-      <p class="prt-k">How a partnership is formed</p>
-      <ol class="prt-steps">
-        <li><span class="n">01</span><div><h3>Introduction</h3><p>Your company, products and certifications, shared under NDA where needed.</p></div><span class="who">You</span></li>
-        <li><span class="n">02</span><div><h3>Diligence</h3><p>We review your documents, the approvals needed in Nigeria and your support capacity.</p></div><span class="who">NewCo</span></li>
-        <li><span class="n">03</span><div><h3>Terms and approval</h3><p>Terms are drafted, approved by the company and signed. Nothing binds before that.</p></div><span class="who">Jointly</span></li>
-      </ol>
-      <a class="prt-more" href="partnerships.html#stages">See all five stages<span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></a>
+      <p class="prt-k">Who we partner with</p>
+      <ul class="prt-who"><li><span class="pw-i"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21V11l5 3v-3l5 3V8l8 4v9z M3 21h18 M15 17h2 M10 17h2"/></svg></span><div><h3>Manufacturers &amp; OEMs</h3><p>Producers, including authorised OEMs, seeking a market-delivery partner in Nigeria.</p></div></li><li><span class="pw-i"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h11v10H3z M14 10h4l3 3v4h-7 M7 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4z M17 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></span><div><h3>Distributors</h3><p>Regional or international distributors looking for a route to Nigerian business and institutional buyers.</p></div></li><li><span class="pw-i"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4a4 4 0 0 0 5.5 5.5L21 11l-9 9-3-3 9-9 M3 21l6-6"/></svg></span><div><h3>Technical service firms</h3><p>Qualified firms that install, commission and maintain the equipment we supply.</p></div></li></ul>
       <p class="prt-k sub">What NewCo provides</p>
       <ul class="prt-bring"><li><span class="bi"><svg viewBox="0 0 24 24"><g transform="translate(0.0 0.0) scale(1.000)"><path class="ic" d="M6 3h9l3 3v15H6z M9 10h6 M9 14h6 M9 18h4"/></g></svg></span>Specification-led buyer enquiries</li><li><span class="bi"><svg viewBox="0 0 24 24"><g transform="translate(0.0 0.0) scale(1.000)"><path class="ic" d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z M9 12l2 2 4-4"/></g></svg></span>Support through local approvals</li><li><span class="bi"><svg viewBox="0 0 24 24"><g transform="translate(0.0 0.0) scale(1.000)"><path class="ic" d="M14 4a4 4 0 0 0 5.5 5.5L21 11l-9 9-3-3 9-9 M3 21l6-6"/></g></svg></span>Access to qualified installers</li><li><span class="bi"><svg viewBox="0 0 24 24"><g transform="translate(0.0 0.0) scale(1.000)"><path class="ic" d="M4 20h16 M6 16l9-9 3 3-9 9H6z"/></g></svg></span>Documented terms and roles</li></ul>
     </div>
@@ -2033,6 +2134,34 @@ a{color:inherit}
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script>
 (function(){var w=document.querySelector('.work');if(!w)return;
   var ex=w.querySelector('.wexp'),rows=[].slice.call(w.querySelectorAll('.wrow')),sc=[].slice.call(w.querySelectorAll('.wsc')),cap=[].slice.call(w.querySelectorAll('.wcap-t')),dots=[].slice.call(w.querySelectorAll('.wdots i'));
@@ -2113,7 +2242,7 @@ new IntersectionObserver(function(en,o){if(en[0].isIntersecting){s.classList.add
 
   // scroll reveal (phones only, and only when motion is welcome)
   if(mq.matches&&!reduce&&'IntersectionObserver' in window){
-    var sel=['.sup-head','.whead','.wpromise','.waud-head','.waud','.enq-eye','#enq-h','.enq-lead','.enq-vis','.prt-lead','.prt-panel','.prt-steps li','.prt-bring li','.team-head','#faq-h','.faq-list','.faq-more','.cta2-in>*'];
+    var sel=['.sup-head','.whead','.wpromise','.waud-head','.waud','.enq-eye','#enq-h','.enq-lead','.enq-vis','.prt-lead','.prt-panel','.prt-who li','.prt-bring li','.team-head','#faq-h','.faq-list','.faq-more','.cta2-in>*'];
     var els=[].slice.call(document.querySelectorAll(sel.join(',')));
     var ro=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
     els.forEach(function(el){var r=el.getBoundingClientRect();if(r.top<innerHeight)return;el.classList.add('rv');ro.observe(el)})}
@@ -2147,6 +2276,34 @@ new IntersectionObserver(function(en,o){if(en[0].isIntersecting){s.classList.add
         '<div><h4>'+esc(q.l)+'</h4><p>'+esc(q.h)+'</p></div></li>'}).join('')+'</ol>'+
       '<div class="eqd-go"><a class="xbtn dk" href="request-a-quote.html?area='+cur+'"><span class="l">Start this enquiry</span><span class="a">'+ARROW+'</span></a><small>Missing some? Send what you have.</small></div>'}
   if('IntersectionObserver' in window){new IntersectionObserver(function(e,o){if(e[0].isIntersecting){box.classList.add('in');o.disconnect()}},{threshold:.2}).observe(box)}else box.classList.add('in');
+  render();
+})();
+</script>
+<script>
+/* preparing an enquiry · desktop spec strip */
+(function(){var root=document.querySelector('.enq');if(!root)return;
+  var data=JSON.parse(document.getElementById('enq-data').textContent),tabs=[].slice.call(root.querySelectorAll('.enq-tabs button'));
+  var IC={need:'M13 3 5 14h6l-1 7 8-11h-6z',site:'M12 21s-6-6.2-6-11a6 6 0 0 1 12 0c0 4.8-6 11-6 11z M12 12.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z',
+    time:'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z M12 7v5l3.5 2',people:'M9 11a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z M3 20c.6-3.4 3-5 6-5s5.4 1.6 6 5 M16 11a3 3 0 1 0 0-6 M18 15c1.8.7 2.8 2.2 3 5',
+    doc:'M6 3h9l3 3v15H6z M9 10h6 M9 14h6 M9 18h4',shield:'M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z M9 12l2 2 4-4',box:'M4 7.5 12 3l8 4.5v9L12 21l-8-4.5z M4 7.5 12 12l8-4.5 M12 12v9',
+    grid:'M4 4h7v7H4z M13 4h7v7h-7z M4 13h7v7H4z M13 13h7v7h-7z',building:'M5 21V4h9v17 M14 9h5v12 M3 21h18 M8 8h3 M8 12h3 M8 16h3',
+    battery:'M6 6h12v15H6z M10 3h4v3 M9 13.5h6 M12 10.5v6',signal:'M12 17v4 M8.5 13.5a5 5 0 0 1 7 0 M5.5 10.5a9.2 9.2 0 0 1 13 0 M2.8 7.5a13 13 0 0 1 18.4 0'};
+  var MAP={'Energy need':'need','Site':'site','Backup':'battery','Grid':'grid','Timeline':'time','Users':'people','Coverage':'signal','Use':'doc','Approvals':'shield',
+    'Application':'doc','Volume':'box','Standards':'shield','Building':'building','Load':'people','Shaft':'grid','Power':'need'};
+  var ARROW='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg>';
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function parse(k){var d=document.createElement('ol');d.innerHTML=data[k].rows;return [].slice.call(d.children).map(function(li){return {l:li.querySelector('b').textContent,h:li.getAttribute('title')||'',e:li.querySelector('em').textContent}})}
+  tabs.forEach(function(b){var t=document.createElement('span');t.className='eqs-tk';t.setAttribute('aria-hidden','true');b.appendChild(t)});
+  var box=document.createElement('div');box.className='eqs';box.setAttribute('aria-live','polite');root.querySelector('.enq-wrap').appendChild(box);
+  var cur=(tabs.filter(function(t){return t.getAttribute('aria-selected')==='true'})[0]||tabs[0]).dataset.a;
+  function render(){var qs=parse(cur);
+    box.innerHTML='<div class="eqs-top"><span>What to send for <b>'+esc(data[cur].n)+'</b></span><span class="eqs-dots" aria-hidden="true">'+qs.map(function(_,i){return '<i style="--k:'+i+'"></i>'}).join('')+'</span></div>'+
+      '<ol class="eqs-l">'+qs.map(function(q,i){return '<li class="eqs-c" style="--k:'+i+'"><div class="eqs-h"><span class="eqs-i" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="'+IC[MAP[q.l]||'doc']+'"/></svg></span><span class="eqs-n">0'+(i+1)+'</span></div>'+
+        '<h3>'+esc(q.l)+'</h3><p>'+esc(q.h)+'</p><div class="eqs-ex"><small>For example</small><span>'+esc(q.e)+'</span></div></li>'}).join('')+'</ol>'+
+      '<div class="eqs-ft"><span><b>Five answers are enough to start.</b> Missing some? Send what you have and we will ask for the rest.</span>'+
+      '<a class="xbtn" href="request-a-quote.html?area='+cur+'"><span class="l">Start this enquiry</span><span class="a">'+ARROW+'</span></a></div>';
+    box.classList.remove('in');void box.offsetWidth;box.classList.add('in')}
+  tabs.forEach(function(b){b.addEventListener('click',function(){cur=b.dataset.a;render()})});
   render();
 })();
 </script>
