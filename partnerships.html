@@ -7,9 +7,8 @@
 <meta name="description" content="Partner with NEWCO SOLUTION LTD: manufacturers, distributors and technical service firms bringing solar, CNG and elevator equipment to buyers in Nigeria.">
 <meta name="theme-color" content="#162F31"><meta property="og:type" content="website"><meta property="og:site_name" content="NewCo Solutions">
 <meta property="og:title" content="Partnerships · NewCo Solutions"><meta property="og:description" content="Bring your equipment to buyers in Nigeria. Every arrangement diligenced, documented and agreed in writing.">
-<meta property="og:image" content="https://newcosolutions.org/og-image.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://newcosolutions.org/og-image.jpg">
+<meta property="og:image" content="https://www.newcosolutions.org/og-image.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://www.newcosolutions.org/og-image.jpg">
 
-<meta name="robots" content="noindex, nofollow">
 <style>
 @font-face{font-family:"Geist";font-weight:400;font-style:normal;font-display:swap;src:url(assets/1a2bd4eb948a.woff2) format("woff2")}
 @font-face{font-family:"Geist";font-weight:500;font-style:normal;font-display:swap;src:url(assets/443eb608200a.woff2) format("woff2")}
@@ -187,6 +186,7 @@ a{color:inherit}
 @media (prefers-reduced-motion:reduce){
   .steps button[aria-selected="true"] .t i{animation:none;transform:scaleX(1)}
 }
+
 
 
 
@@ -1017,8 +1017,8 @@ a{color:inherit}
 @media (prefers-reduced-motion:reduce){.st-b,.st-tx,.bx-t{transition:none!important}}
 .cta2{padding-top:clamp(80px,9vw,140px)}
 </style>
-<link rel="canonical" href="https://newcosolutions.org/partnerships">
-<meta property="og:url" content="https://newcosolutions.org/partnerships">
+<link rel="canonical" href="https://www.newcosolutions.org/partnerships">
+<meta property="og:url" content="https://www.newcosolutions.org/partnerships">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -1129,7 +1129,7 @@ a{color:inherit}
       <fieldset class="pf-g"><legend class="pf-l"><span>03</span>Your details</legend>
         <div class="pf-row"><label class="fl"><span>Company name</span><input name="company" required autocomplete="organization" placeholder="Registered company name"></label><label class="fl"><span>Country</span><input name="country" required autocomplete="country-name" placeholder="Where you are based"></label></div>
         <div class="pf-row"><label class="fl"><span>Your name</span><input name="name" required autocomplete="name" placeholder="Full name"></label><label class="fl"><span>Work email</span><input name="email" type="email" required autocomplete="email" inputmode="email" placeholder="name@company.com"></label></div>
-        <div class="pf-row"><label class="fl"><span>Website <i>Optional</i></span><input name="website" type="url" autocomplete="url" inputmode="url" placeholder="company.com"></label><label class="fl"><span>Phone or WhatsApp <i>Optional</i></span><input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+234 &hellip;"></label></div>
+        <div class="pf-row"><label class="fl"><span>Website <i>Optional</i></span><input name="website" type="text" autocomplete="url" inputmode="url" placeholder="company.com"></label><label class="fl"><span>Phone or WhatsApp <i>Optional</i></span><input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+234 &hellip;"></label></div>
       </fieldset>
       <fieldset class="pf-g"><legend class="pf-l"><span>04</span>About your company and products</legend>
         <label class="fl"><span class="sr">About your company and products</span><textarea name="about" rows="5" required placeholder="What you make or provide, key certifications, and the market you have in mind."></textarea></label>
@@ -1137,7 +1137,7 @@ a{color:inherit}
       <label class="pf-consent"><input type="checkbox" name="consent" required><span>I agree that NEWCO SOLUTION LTD may use these details to respond to this enquiry, as described in the <a href="privacy.html">privacy notice</a>.</span></label>
       <p class="pf-err" role="alert" hidden></p>
       <div class="pf-go"><button type="submit" class="xbtn dk"><span class="l">Send partner enquiry</span><span class="a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></button><small>An enquiry creates no dealership, authorisation or exclusivity.</small></div>
-      <div class="pf-done" hidden><span class="pf-dk" aria-hidden="true"></span><h3>Enquiry sent.</h3><p>Thank you. We read every enquiry against our supply areas and will reply to arrange an introduction where there is a fit.</p><p class="pf-alt">Anything to add? Email <a href="mailto:partnerships@newcosolutions.org">partnerships@newcosolutions.org</a>.</p></div>
+      <div class="pf-done" hidden><span class="pf-dk" aria-hidden="true"></span><h3>Enquiry sent.</h3><p>Thank you. We read every enquiry against our supply areas and reply within 2 business days.</p><p class="pf-alt">Anything to add? Email <a href="mailto:partnerships@newcosolutions.org">partnerships@newcosolutions.org</a>.</p></div>
     </form>
   </div>
 </section>
@@ -1196,6 +1196,10 @@ a{color:inherit}
 
 })();
 </script>
+
+
+
+
 
 
 
@@ -1733,7 +1737,19 @@ a{color:inherit}
     if(fileInput&&fileInput.files&&fileInput.files.length)fd.append('attachment',fileInput.files[0]);
     fetch('/api/enquiry',{method:'POST',body:fd})
       .then(function(r){return r.json()}).then(function(j){if(!j||!j.ok)throw 0;ok()})
-      .catch(function(){btn.disabled=false;lbl.textContent=old;fail()});
+      .catch(function(){backup(form,subj,data,ok,function(){btn.disabled=false;lbl.textContent=old;fail()},fileInput)});
+  }
+  /* backup route while the site's own mail sender is not set up: FormSubmit */
+  function backup(form,subj,data,ok,fail,fileInput){
+    var to={quote:'sales@newcosolutions.org',contact:'info@newcosolutions.org',partner:'partnerships@newcosolutions.org'}[form];
+    var d={};Object.keys(data).forEach(function(k){d[k]=data[k]});d._subject=subj;d._template='table';d._captcha='false';if(d.Email)d._replyto=d.Email;
+    if(fileInput&&fileInput.files&&fileInput.files.length){
+      var h=document.createElement('form');h.method='POST';h.action='https://formsubmit.co/'+to;h.enctype='multipart/form-data';h.style.display='none';
+      d._next=location.href.split('#')[0].split('?')[0]+'?sent=1';
+      Object.keys(d).forEach(function(k){var i=document.createElement('input');i.type='hidden';i.name=k;i.value=d[k];h.appendChild(i)});
+      fileInput.name='attachment';h.appendChild(fileInput);document.body.appendChild(h);h.submit();return}
+    fetch('https://formsubmit.co/ajax/'+to,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(d)})
+      .then(function(r){return r.json()}).then(function(j){if(String(j.success)!=='true')throw 0;ok()}).catch(fail);
   }
   function failmsg(to){err.innerHTML='We could not send that just now. Please try again, or email <a href="mailto:'+to+'">'+to+'</a>.';err.hidden=false}
   f.addEventListener('submit',function(e){e.preventDefault();var first=null;

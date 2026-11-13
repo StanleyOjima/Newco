@@ -6,9 +6,9 @@ const DOMAIN = 'newcosolutions.org';
 const FROM_SITE = `NewCo Solutions Website <website@${DOMAIN}>`;
 const FROM_REPLY = `NewCo Solutions <info@${DOMAIN}>`;
 const FORMS = {
-  quote:   { to: `sales@${DOMAIN}`,        label: 'Quote request',   thanks: 'Thank you for your enquiry. We have received it and will review it against our supplier channels. If we need anything else, we will ask before verification starts.' },
-  contact: { to: `info@${DOMAIN}`,         label: 'Website message', thanks: 'Thank you for your message. We have received it and will reply by email.' },
-  partner: { to: `partnerships@${DOMAIN}`, label: 'Partner enquiry', thanks: 'Thank you for your partner enquiry. We read every enquiry against our supply areas and will reply to arrange an introduction where there is a fit.' },
+  quote:   { to: `sales@${DOMAIN}`,        label: 'Quote request',   thanks: 'Thank you for your enquiry. We have received it and will reply within 2 business days. If we need anything else, we will ask before verification starts.' },
+  contact: { to: `info@${DOMAIN}`,         label: 'Website message', thanks: 'Thank you for your message. We have received it and will reply within 2 business days.' },
+  partner: { to: `partnerships@${DOMAIN}`, label: 'Partner enquiry', thanks: 'Thank you for your partner enquiry. We read every enquiry against our supply areas and will reply within 2 business days.' },
 };
 const FILE_OK = /\.(pdf|docx|xlsx|jpe?g)$/i, FILE_MAX = 4 * 1024 * 1024;
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
