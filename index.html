@@ -323,6 +323,8 @@ a{color:inherit}
 
 
 
+
+
 /* ── Home · 01 Supply areas (light section) ───────── */
 .supply{--s-ground:#F2F3EF;--s-card:#FAFBF7;--s-ink:#162F31;--s-text:#4A5D5E;--s-line:rgba(22,47,49,.12);--s-line-2:rgba(22,47,49,.2);
   background:var(--s-ground);color:var(--s-ink);padding:clamp(80px,9vw,136px) 0 clamp(80px,9vw,128px);position:relative}
@@ -667,7 +669,7 @@ a{color:inherit}
 .team h2{font:400 clamp(2.3rem,4.6vw,4.3rem)/1.03 var(--f-sans);letter-spacing:-.045em;margin:0;max-width:14ch}
 .team-lead{margin:0;font-size:clamp(1rem,1.2vw,1.12rem);line-height:1.6;color:rgba(244,243,238,.7);max-width:44ch}
 .team-strip{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:1px;background:rgba(244,243,238,.1);border:1px solid rgba(244,243,238,.1)}
-.tm{grid-column:span 3;position:relative;height:clamp(400px,33vw,490px);min-width:0;overflow:hidden;outline:none;cursor:default;
+.tm{grid-column:span 4;position:relative;height:clamp(400px,33vw,490px);min-width:0;overflow:hidden;outline:none;cursor:default;
   background:radial-gradient(ellipse 90% 70% at 50% 32%,#2C4A4A 0%,#1C3436 55%,#122627 100%);transition:background .5s ease}
 .tm img{position:absolute;left:50%;bottom:0;width:100%;max-width:470px;max-height:96%;object-fit:contain;object-position:bottom;height:auto;transform:translateX(-50%);
   filter:grayscale(1) contrast(1.08) brightness(.97);transition:filter .6s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
@@ -694,7 +696,7 @@ a{color:inherit}
 @media (prefers-reduced-motion:reduce){.tm,.tm img{transition:none}}
 @media (max-width:860px){.team-head{grid-template-columns:1fr}
   .team-strip{grid-template-columns:repeat(6,minmax(0,1fr))}
-  .tm{grid-column:span 3;height:clamp(360px,50vw,430px)}.tm:nth-child(-n+3){grid-column:span 2;height:clamp(380px,56vw,460px)}
+  .tm{grid-column:span 2;height:clamp(360px,50vw,430px)}.tm:nth-child(-n+3){grid-column:span 2;height:clamp(380px,56vw,460px)}
   .tm:nth-child(-n+3) .tm-tx{left:16px;right:16px;bottom:18px}.tm:nth-child(-n+3) .tm-tx h3{font-size:1.05rem}.tm:nth-child(-n+3) .tm-i{left:16px}
   .tm img{filter:none}}
 .faq{background:#F2F3EF;color:#162F31;padding:clamp(88px,9vw,136px) 0}
@@ -931,6 +933,13 @@ a{color:inherit}
   .team-strip .tm:nth-child(n){grid-column:auto;display:flex;flex-direction:column;height:auto;aspect-ratio:auto;padding:0;overflow:hidden;
     background:radial-gradient(ellipse 90% 70% at 50% 32%,#2C4A4A 0%,#1C3436 55%,#122627 100%)}
   .team-strip .tm:nth-child(-n+3){grid-column:1 / -1}
+  /* executives: equal rows, photo left, name right */
+  .team-strip .tm:nth-child(n+4){grid-column:1 / -1;flex-direction:row;align-items:stretch;min-height:184px}
+  .team-strip .tm:nth-child(n+4) img{width:42%!important;max-width:170px!important;aspect-ratio:auto!important;height:auto!important;min-height:184px;object-fit:cover;object-position:50% 18%!important;flex:none}
+  .team-strip .tm:nth-child(n+4) .tm-tx{margin-top:0!important;border-top:0!important;border-left:2px solid #73D199;display:flex;flex-direction:column;justify-content:center;padding:18px 18px!important}
+  .team-strip .tm:nth-child(n+4) .tm-tx h3{font-size:1.15rem!important;line-height:1.25!important;margin-bottom:10px!important}
+  .team-strip .tm:nth-child(n+4) .tm-tx p{font-size:10.5px!important}
+  .team-strip .tm:nth-child(n+4) .tm-i{display:none}
   .tm::after{display:none}
   .team-strip .tm:nth-child(n) img{position:relative;left:auto;bottom:auto;transform:none!important;width:100%;height:auto;max-width:none;max-height:none;aspect-ratio:4 / 5;object-fit:cover;object-position:50% 0;
     filter:grayscale(1) contrast(1.08) brightness(.97);transition:filter .5s ease}
@@ -1318,7 +1327,7 @@ a{color:inherit}
       </div>
       <p class="team-lead">NewCo is led by a board and an executive team who stay close to the work. The people you speak to are the people who answer for it, from the first brief to the agreed scope.</p>
     </div>
-    <ul class="team-strip"><li class="tm" data-k="ooni" tabindex="0"><img loading="lazy" decoding="async" src="assets/b1208a925d72.webp" alt="Oba Adeyeye Enitan Ogunwusi, Ojaja II, Ooni of Ife, Co-Chairman, Board of Directors" width="720" height="900" decoding="async"><span class="tm-i">01</span><div class="tm-tx"><h3>Oba Adeyeye Enitan Ogunwusi, Ojaja II, Ooni of Ife</h3><p>Co-Chairman, Board of Directors</p></div></li><li class="tm" data-k="khalifah" tabindex="0"><img loading="lazy" decoding="async" src="assets/0da51f500f60.webp" alt="Khalifah Sheikh Ibrahim Dahiru Bauchi, Co-Chairman, Board of Directors" width="720" height="900" decoding="async"><span class="tm-i">02</span><div class="tm-tx"><h3>Khalifah Sheikh Ibrahim Dahiru Bauchi</h3><p>Co-Chairman, Board of Directors</p></div></li><li class="tm" data-k="mercy" tabindex="0"><img loading="lazy" decoding="async" src="assets/fdac293842e5.webp" alt="Alexander Konye Mercy, President" width="720" height="900" decoding="async"><span class="tm-i">03</span><div class="tm-tx"><h3>Alexander Konye Mercy</h3><p>President</p></div></li><li class="tm" data-k="emma" tabindex="0"><img loading="lazy" decoding="async" src="assets/739597c74e0d.webp" alt="Engr. Idachaba E. Emmanuel, Group Managing Director" width="720" height="900" decoding="async"><span class="tm-i">04</span><div class="tm-tx"><h3>Engr. Idachaba E. Emmanuel</h3><p>Group Managing Director</p></div></li><li class="tm" data-k="sani" tabindex="0"><img loading="lazy" decoding="async" src="assets/eeb90eca8b13.webp" alt="Engr. Sani Garba Mamman, Business Development Manager" width="720" height="900" decoding="async"><span class="tm-i">05</span><div class="tm-tx"><h3>Engr. Sani Garba Mamman</h3><p>Business Development Manager</p></div></li><li class="tm" data-k="ojima" tabindex="0"><img loading="lazy" decoding="async" src="assets/b6bf8c2f8939.webp" alt="Ojima Stanley Aniegboka, Chief Technical Officer" width="720" height="900" decoding="async"><span class="tm-i">06</span><div class="tm-tx"><h3>Ojima Stanley Aniegboka</h3><p>Chief Technical Officer</p></div></li><li class="tm" data-k="usman" tabindex="0"><img loading="lazy" decoding="async" src="assets/fd66e128dc17.webp" alt="Usman Ibrahim Sheikh Dahiru Bauchi, Public Relations Manager" width="720" height="900" decoding="async"><span class="tm-i">07</span><div class="tm-tx"><h3>Usman Ibrahim Sheikh Dahiru Bauchi</h3><p>Public Relations Manager</p></div></li></ul>
+    <ul class="team-strip"><li class="tm" data-k="ooni" tabindex="0"><img loading="lazy" decoding="async" src="assets/b1208a925d72.webp" alt="Oba Adeyeye Enitan Ogunwusi, Ojaja II, Ooni of Ife, Co-Chairman, Board of Directors" width="720" height="900" decoding="async"><span class="tm-i">01</span><div class="tm-tx"><h3>Oba Adeyeye Enitan Ogunwusi, Ojaja II, Ooni of Ife</h3><p>Co-Chairman, Board of Directors</p></div></li><li class="tm" data-k="khalifah" tabindex="0"><img loading="lazy" decoding="async" src="assets/0da51f500f60.webp" alt="Khalifah Sheikh Ibrahim Dahiru Bauchi, Co-Chairman, Board of Directors" width="720" height="900" decoding="async"><span class="tm-i">02</span><div class="tm-tx"><h3>Khalifah Sheikh Ibrahim Dahiru Bauchi</h3><p>Co-Chairman, Board of Directors</p></div></li><li class="tm" data-k="mercy" tabindex="0"><img loading="lazy" decoding="async" src="assets/fdac293842e5.webp" alt="Alexander Konye Mercy, President" width="720" height="900" decoding="async"><span class="tm-i">03</span><div class="tm-tx"><h3>Alexander Konye Mercy</h3><p>President</p></div></li><li class="tm" data-k="emma" tabindex="0"><img loading="lazy" decoding="async" src="assets/739597c74e0d.webp" alt="Engr. Idachaba E. Emmanuel, Group Managing Director" width="720" height="900" decoding="async"><span class="tm-i">04</span><div class="tm-tx"><h3>Engr. Idachaba E. Emmanuel</h3><p>Group Managing Director</p></div></li><li class="tm" data-k="sani" tabindex="0"><img loading="lazy" decoding="async" src="assets/eeb90eca8b13.webp" alt="Engr. Sani Garba Mamman, Business Development Manager" width="720" height="900" decoding="async"><span class="tm-i">05</span><div class="tm-tx"><h3>Engr. Sani Garba Mamman</h3><p>Business Development Manager</p></div></li><li class="tm" data-k="usman" tabindex="0"><img loading="lazy" decoding="async" src="assets/fd66e128dc17.webp" alt="Usman Ibrahim Sheikh Dahiru Bauchi, Public Relations Manager" width="720" height="900" decoding="async"><span class="tm-i">06</span><div class="tm-tx"><h3>Usman Ibrahim Sheikh Dahiru Bauchi</h3><p>Public Relations Manager</p></div></li></ul>
   </div>
 </section>
 
@@ -1820,6 +1829,14 @@ a{color:inherit}
   document.addEventListener('visibilitychange',function(){document.hidden?stop():(visible&&start())});
 })();
 </script>
+
+
+
+
+
+
+
+
 
 
 
