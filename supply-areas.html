@@ -326,6 +326,8 @@ a{color:inherit}
 
 
 
+
+
 /* ── Home · 04 FAQ · 05 CTA · Footer ─────────────── */
 .prt{background:#E3EFE5;color:#162F31;padding:clamp(88px,9vw,136px) 0}
 .prt-wrap{padding:0 var(--edge);display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(16px,1.8vw,24px);align-items:stretch}
@@ -1340,29 +1342,50 @@ a{color:inherit}
   function makeTractor(){
     var g=new THREE.Group();
     rbox(3.9,.12,2.7,M.base,0,.06,0,g);
-    var tyre=std({color:0x0e2223,roughness:.92,metalness:0});
+    var tyre=std({color:0x050f10,roughness:.9,metalness:0}),rim=std({color:0xa9d6c4,roughness:.35,metalness:.6}),grille=std({color:0x0f2627,roughness:.7,metalness:.2});
+    rim.envMapIntensity=.5;
     var wheels=[];
-    function wheel(x,z,r,w){var wg=new THREE.Group();wg.position.set(x,.12+r,z);g.add(wg);
-      var t=new THREE.Mesh(new THREE.CylinderGeometry(r,r,w,40),tyre);t.rotation.x=Math.PI/2;t.castShadow=t.receiveShadow=true;wg.add(t);
-      for(var k=0;k<14;k++){var a=k/14*Math.PI*2,lug=new THREE.Mesh(new THREE.BoxGeometry(.07,.07,w*.96),tyre);lug.position.set(Math.cos(a)*r,Math.sin(a)*r,0);lug.rotation.z=a;wg.add(lug)}
-      var hb=new THREE.Mesh(new THREE.CylinderGeometry(r*.55,r*.55,w+.02,32),M.metalDark);hb.rotation.x=Math.PI/2;wg.add(hb);
-      var cap=new THREE.Mesh(new THREE.CylinderGeometry(r*.2,r*.2,w+.06,16),M.metal);cap.rotation.x=Math.PI/2;wg.add(cap);
+    function wheel(x,z,r,w,side){var wg=new THREE.Group();wg.position.set(x,.12+r,z);g.add(wg);
+      var t=new THREE.Mesh(new THREE.CylinderGeometry(r,r,w,48),tyre);t.rotation.x=Math.PI/2;t.castShadow=t.receiveShadow=true;wg.add(t);
+      // chevron tread across the rolling face, plus a sidewall ring that reads at this angle
+      for(var k=0;k<18;k++){var a=k/18*Math.PI*2;[-1,1].forEach(function(sd){var lug=new THREE.Mesh(new THREE.BoxGeometry(.075,.06,w*.48),tyre);lug.position.set(Math.cos(a)*(r+.015),Math.sin(a)*(r+.015),sd*w*.25);lug.rotation.z=a;lug.rotation.x=sd*.35;wg.add(lug)})}
+      var sw=new THREE.Mesh(new THREE.TorusGeometry(r*.8,.03,8,48),M.band);sw.position.z=side*(w/2+.005);wg.add(sw);
+      var rm=new THREE.Mesh(new THREE.CylinderGeometry(r*.56,r*.56,w*.9,40),rim);rm.rotation.x=Math.PI/2;wg.add(rm);
+      var dish=new THREE.Mesh(new THREE.CylinderGeometry(r*.34,r*.4,w*.96,24),M.tile);dish.rotation.x=Math.PI/2;wg.add(dish);
+      for(var n=0;n<6;n++){var na=n/6*Math.PI*2,nut=new THREE.Mesh(new THREE.CylinderGeometry(.035,.035,w+.02,8),rim);nut.rotation.x=Math.PI/2;nut.position.set(Math.cos(na)*r*.22,Math.sin(na)*r*.22,0);wg.add(nut)}
+      var cap=new THREE.Mesh(new THREE.CylinderGeometry(r*.11,r*.11,w+.05,16),rim);cap.rotation.x=Math.PI/2;wg.add(cap);
       wheels.push(wg);return wg}
-    wheel(-.95,.98,.82,.5);wheel(-.95,-.98,.82,.5);wheel(1.2,.84,.48,.3);wheel(1.2,-.84,.48,.3);
-    rbox(2.7,.34,.86,M.tile,.15,.78,0,g,false,.05);
-    var hood=rbox(1.55,.62,.92,M.tank,.95,1.26,0,g,false,.12);
-    for(var v=0;v<4;v++)box(.012,.4,.7,M.band,1.73,1.1+v*.0,0,g,true);
-    box(.02,.36,.66,M.metalDark,1.73,1.18,0,g,true);
-    rbox(.9,.5,1.02,M.tank,-.62,1.2,0,g,false,.08);
-    [[.2,1],[.2,-1],[-1.35,1],[-1.35,-1]].forEach(function(p){box(.06,1.2,.06,M.metalDark,p[0]*1,2.0,p[1]*.5,g)});
-    var cab=mesh(new THREE.BoxGeometry(1.55,1.18,1.0),M.glass,-.58,2.0,0,g,true);cab.renderOrder=2;
-    rbox(1.75,.12,1.18,M.baseDark,-.58,2.64,0,g,false,.04);
-    [[-.95,.98],[-.95,-.98]].forEach(function(p){var fd=mesh(new THREE.CylinderGeometry(.9,.9,.54,32,1,true,Math.PI/2,Math.PI),M.tile,p[0],.94,p[1],g);fd.rotation.x=Math.PI/2;fd.rotation.y=0;fd.material=M.tile});
-    var ex=mesh(new THREE.CylinderGeometry(.05,.05,1.0,12),M.metalDark,.6,2.0,.32,g);
-    mesh(new THREE.CylinderGeometry(.065,.05,.1,12),M.metal,.6,2.52,.32,g);
-    var lamp=glow(.42,C.green,0);lamp.position.set(1.78,1.42,0);g.add(lamp);
-    var beacon=glow(.34,0xbff5d6,.85);beacon.position.set(-.58,2.78,0);g.add(beacon);
-    return {group:g,mats:[M.tank],anchor:V(0,3.25,0),h:2.75,wheels:wheels,lamp:lamp};
+    wheel(-.95,1.0,.84,.52,1);wheel(-.95,-1.0,.84,.52,-1);wheel(1.25,.82,.47,.3,1);wheel(1.25,-.82,.47,.3,-1);
+    // chassis and front axle
+    rbox(2.8,.3,.7,M.baseDark,.15,.72,0,g,false,.05);
+    box(.12,.12,1.5,M.metalDark,1.25,.59,0,g);
+    rbox(.34,.34,.86,M.tile,1.86,.86,0,g,false,.05);                       // front weight
+    for(var wb=0;wb<4;wb++)box(.02,.28,.8,M.baseDark,2.035,.86,-.3+wb*.2,g,true);
+    // bonnet with grille and headlights
+    rbox(1.6,.6,.84,M.tank,.98,1.18,0,g,false,.14);
+    rbox(.06,.5,.66,grille,1.79,1.15,0,g,false,.02);
+    for(var gl=0;gl<5;gl++)box(.02,.03,.6,M.metal,1.825,.97+gl*.09,0,g,true);
+    [-.26,.26].forEach(function(z){mesh(new THREE.CylinderGeometry(.065,.065,.05,16),M.metal,1.8,1.38,z,g).rotation.z=Math.PI/2});
+    box(1.5,.03,.86,M.band,.98,1.0,0,g,true);                                // panel seam
+    [[.98,.425],[.98,-.425]].forEach(function(p){box(1.3,.24,.012,grille,p[0],1.2,p[1],g,true)}); // side vents
+    // cab: body, tub, seat, wheel, frame, roof
+    rbox(.95,.46,1.04,M.tank,-.62,1.16,0,g,false,.08);
+    rbox(.5,.08,.5,M.baseDark,-.8,1.48,0,g,false,.03);rbox(.08,.42,.5,M.baseDark,-1.02,1.66,0,g,false,.03);
+    var sc=mesh(new THREE.CylinderGeometry(.03,.03,.5,8),M.metalDark,-.25,1.62,0,g);sc.rotation.z=.6;
+    var st=mesh(new THREE.TorusGeometry(.13,.02,8,24),M.metal,-.1,1.82,0,g);st.rotation.y=Math.PI/2;st.rotation.x=.55;
+    [[.2,.5],[.2,-.5],[-1.36,.5],[-1.36,-.5]].forEach(function(p){box(.05,1.16,.05,M.metal,p[0],1.98,p[1],g)});
+    var cab=mesh(new THREE.BoxGeometry(1.56,1.14,1.0),M.glass,-.58,1.98,0,g,true);cab.renderOrder=2;
+    rbox(1.82,.13,1.22,M.baseDark,-.6,2.62,0,g,false,.05);rbox(1.6,.05,1.04,M.tank,-.6,2.7,0,g,false,.02);
+    [-.62,.62].forEach(function(z){var mr=box(.04,.18,.12,M.metal,.25,2.2,z*1.12,g);strut(V(.22,2.25,z*.84),V(.25,2.25,z*1.1),.012,M.metal,g)});
+    // rear mudguards, a little darker than the body so the big wheels read
+    [[-.95,1.0],[-.95,-1.0]].forEach(function(p){var fd=mesh(new THREE.CylinderGeometry(.92,.92,.5,40,1,true,Math.PI*.55,Math.PI*.9),M.tile,p[0],.96,p[1],g);fd.rotation.x=Math.PI/2;fd.material=std({color:0x2f6156,roughness:.5,metalness:.25,side:THREE.DoubleSide})});
+    // exhaust, hitch
+    mesh(new THREE.CylinderGeometry(.05,.05,1.05,12),M.metalDark,.62,2.0,.32,g);
+    mesh(new THREE.CylinderGeometry(.075,.055,.12,12),M.metal,.62,2.55,.32,g);
+    box(.5,.08,.12,M.metalDark,-1.65,.74,0,g);strut(V(-1.45,.95,.25),V(-1.85,.74,.25),.025,M.metalDark,g);strut(V(-1.45,.95,-.25),V(-1.85,.74,-.25),.025,M.metalDark,g);
+    var lamp=glow(.5,C.green,0);lamp.position.set(1.86,1.38,0);g.add(lamp);
+    var beacon=glow(.34,0xbff5d6,.85);beacon.position.set(-.6,2.82,0);g.add(beacon);
+    return {group:g,mats:[M.tank],anchor:V(0,3.3,0),h:2.8,wheels:wheels,lamp:lamp};
   }
   function makeHub(){
     var g=new THREE.Group();
@@ -1532,6 +1555,14 @@ a{color:inherit}
   document.addEventListener('visibilitychange',function(){document.hidden?stop():(visible&&start())});
 })();
 </script>
+
+
+
+
+
+
+
+
 
 
 
