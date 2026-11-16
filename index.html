@@ -4,15 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>NewCo Solutions · Infrastructure equipment, sourced to specification</title>
-<meta name="description" content="NEWCO SOLUTION LTD sources business communications, CNG, elevator and solar equipment for businesses and projects in Nigeria, starting from your specification.">
+<meta name="description" content="NEWCO SOLUTION LTD sources business communications, CNG, elevator, solar and tractor equipment for businesses and projects in Nigeria, starting from your specification.">
 <meta name="theme-color" content="#162F31">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="NewCo Solutions">
 <meta property="og:title" content="NewCo Solutions · Infrastructure equipment, sourced to specification">
-<meta property="og:description" content="Business communications, CNG, elevator and solar equipment for businesses and projects in Nigeria, starting from your specification.">
+<meta property="og:description" content="Business communications, CNG, elevator, solar and tractor equipment for businesses and projects in Nigeria, starting from your specification.">
 <meta property="og:image" content="https://www.newcosolutions.org/og-image.jpg">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="NewCo Solutions: infrastructure equipment, sourced to specification. Business communications, CNG, elevators and solar.">
+<meta property="og:image:alt" content="NewCo Solutions: infrastructure equipment, sourced to specification. Business communications, CNG, elevators, solar and tractors.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://www.newcosolutions.org/og-image.jpg">
 
@@ -189,10 +189,18 @@ a{color:inherit}
   .badge{font-size:10px;letter-spacing:.1em;line-height:1.5;max-width:100%}
 }
 @media (max-width:640px){.steps .n{display:none}
-  .steps{display:grid;grid-template-columns:1fr 1fr;gap:6px;overflow:visible;margin:0;padding:0}.steps button,.steps .t{width:100%}.steps .t{justify-content:center}}
+  .steps{display:flex;flex-wrap:nowrap;gap:6px;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:none;margin:0 calc(var(--edge)*-1);padding:0 var(--edge) 2px;scroll-padding:0 var(--edge)}.steps::-webkit-scrollbar{display:none}.steps button{flex:none;scroll-snap-align:start}.steps .t{justify-content:center;padding-left:16px;padding-right:16px}}
 @media (prefers-reduced-motion:reduce){
   .steps button[aria-selected="true"] .t i{animation:none;transform:scaleX(1)}
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -849,7 +857,9 @@ a{color:inherit}
   /* 03 preparing an enquiry: pick an area right above the brief */
   .enq-wrap{display:flex;flex-direction:column;align-items:stretch;gap:0}
   .enq-copy{display:contents}
-  .enq-tabs{order:3;display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:26px 0 16px;max-width:none}
+  .enq-tabs{order:3;display:flex;flex-wrap:nowrap;gap:8px;margin:26px calc(var(--edge)*-1) 16px;padding:0 var(--edge) 2px;max-width:none;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:none}
+  .enq-tabs::-webkit-scrollbar{display:none}
+  .enq-tabs button{flex:none;scroll-snap-align:start}
   .enq-tabs button{--cut:10px;gap:10px;padding:13px 12px;font-size:14.5px;min-height:0}
   .enq-tabs button svg{width:18px;height:18px;flex:none}
   .enq-vis{order:4;width:100%;max-width:none;padding:0;background:none;clip-path:none}
@@ -1051,7 +1061,7 @@ a{color:inherit}
   .enq .enq-eye{grid-column:1;grid-row:1}
   .enq #enq-h{grid-column:1;grid-row:2;max-width:12.5ch}
   .enq .enq-lead{grid-column:2;grid-row:2;margin:0;max-width:44ch}
-  .enq .enq-tabs{grid-column:1 / -1;grid-row:3;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;max-width:none;margin:clamp(40px,4.5vw,64px) 0 0;border:1px solid rgba(22,47,49,.14);border-bottom:0;background:#FAFBF7}
+  .enq .enq-tabs{grid-column:1 / -1;grid-row:3;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;max-width:none;margin:clamp(40px,4.5vw,64px) 0 0;border:1px solid rgba(22,47,49,.14);border-bottom:0;background:#FAFBF7}
   .enq .enq-tabs button{position:relative;justify-content:flex-start;height:64px;padding:0 22px;border:0!important;border-right:1px solid rgba(22,47,49,.12)!important;background:none!important;color:#4A5D5E;clip-path:none!important;font-size:15.5px;gap:14px;transition:color .2s ease,background .2s ease}
   .enq .enq-tabs button:last-child{border-right:0!important}
   .enq .enq-tabs button::before,.enq .enq-tabs button::after{display:none!important}
@@ -1131,7 +1141,19 @@ a{color:inherit}
 .ph2 .tk{position:absolute;left:0;right:0;bottom:0;height:8px;z-index:3;background:repeating-linear-gradient(90deg,rgba(115,209,153,.8) 0 1.5px,transparent 1.5px 9px);opacity:.55;transform-origin:left;transition:opacity .4s ease}
 .ph2 .sup-card:hover .tk{opacity:.95}
 .ph2 .sup-card .dia.ph{aspect-ratio:auto!important}
-@media (max-width:1024px){.ph2 .sup-card{grid-column:span 6}.ph2 .sup-in{min-height:340px}}
+/* five areas: Communications leads, the other four sit beside it */
+@media (min-width:1025px){
+  .ph2 .sup-card{grid-column:span 3}
+  .ph2 .sup-card:first-child{grid-column:span 6;grid-row:span 2}
+  .ph2 .sup-card:first-child .sup-in{height:100%}
+  .ph2 .sup-card:not(:first-child) .sup-in{min-height:clamp(290px,23vw,340px)}
+  .ph2 .sup-card:not(:first-child) .txt{padding:0 clamp(20px,1.8vw,28px) clamp(22px,2vw,30px)!important}
+  .ph2 .sup-card:not(:first-child) .row{left:clamp(20px,1.8vw,28px);right:clamp(20px,1.8vw,28px);top:clamp(18px,1.7vw,24px)}
+  .ph2 .sup-card:not(:first-child) .txt h3{font-size:clamp(1.3rem,1.7vw,1.6rem);margin-bottom:8px}
+  .ph2 .sup-card:not(:first-child) .txt p{font-size:14px;line-height:1.5}
+  .ph2 .sup-card:first-child .txt h3{font-size:clamp(2rem,3vw,2.8rem)}
+}
+@media (max-width:1024px){.ph2 .sup-card{grid-column:span 6}.ph2 .sup-card:first-child{grid-column:span 12}.ph2 .sup-in{min-height:340px}}
 @media (max-width:760px){
   .sup-grid.ph2{display:block}
   .ph2 .sup-in{min-height:clamp(320px,90vw,360px)}
@@ -1140,6 +1162,32 @@ a{color:inherit}
   .ph2 .txt h3{font-size:1.75rem}
   .ph2 .txt p{font-size:15px}
 }
+
+/* ── partner logos: label on top, one open row (cards on phones) ── */
+.pt-strip{display:block;margin-top:clamp(40px,4.5vw,64px);padding-top:clamp(28px,3vw,40px);border-top:1px solid rgba(22,47,49,.14)}
+.pt-head{margin-bottom:clamp(14px,1.6vw,22px)}
+.pt-k{display:flex;align-items:center;gap:10px;margin:0;font:500 11px/1 var(--f-mono);letter-spacing:.16em;text-transform:uppercase;color:#4A5D5E}
+.pt-k i{width:6px;height:6px;background:#2E8A5A;flex:none}
+.pt-note{display:none}
+.pt-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));align-items:center}
+.pt-t{display:flex;align-items:center;justify-content:center;min-height:96px;padding:12px}
+.pt-logos{display:flex;align-items:center;justify-content:center;gap:10px;color:#162F31}
+.pt-logos img{display:block;width:auto;max-width:100%;object-fit:contain;opacity:.82;transition:opacity .3s ease;transform:scale(1.18)}
+.pt-t:hover .pt-logos img,.pt-t:hover .pt-word{opacity:1}
+.pt-word{font:600 12.5px/1 var(--f-sans);letter-spacing:.14em;text-transform:uppercase;color:#162F31;opacity:.82;transform:scale(1.12);margin-left:6px}
+@media (max-width:1100px){.pt-list{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:8px}.pt-logos img{transform:none}.pt-word{transform:none;margin-left:0}}
+@media (max-width:760px){
+  .pt-strip{display:block;padding-top:28px}
+  .pt-head{margin-bottom:18px}
+  .pt-note{display:none}
+  .pt-list{grid-template-columns:1fr 1fr!important;gap:10px;border:0!important}
+  .pt-t{min-height:84px;padding:16px;border:0!important;background:#FAFBF7;box-shadow:inset 0 0 0 1px rgba(22,47,49,.07)}
+  .pt-logos img{max-width:none}
+  .pt-logos .pl-technova{height:24px!important}.pt-logos .pl-zubayada{height:30px!important}.pt-logos .pl-motozen{height:17px!important}
+  .pt-logos .pl-exprex{height:31px!important}.pt-logos .pl-xtrapower{height:32px!important}.pt-logos .pl-lovol{height:17px!important}
+  .pt-word{font-size:11px;letter-spacing:.12em}
+}
+.ptb-home{background:#F2F3EF;border-bottom:1px solid rgba(22,47,49,.12);padding:clamp(28px,3vw,40px) 0 clamp(24px,2.6vw,36px)}.ptb-home .ptb-in{padding:0 var(--edge)}.ptb-home .pt-strip{margin-top:0;padding-top:0;border-top:0}
 
 @media (min-width:761px){
   .eqs-top{position:relative;min-height:150px;align-items:flex-end!important;padding:24px 26px!important;border-bottom:0!important;background:#162F31 center/cover no-repeat;color:rgba(244,243,238,.75)!important;overflow:hidden}
@@ -1190,7 +1238,7 @@ a{color:inherit}
   <div class="hero-copy">
     <div class="badge"><i></i><span class="bd-l">Equipment supply &amp; technology solutions · Nigeria</span><span class="bd-s">Equipment supply &amp; technology</span></div>
     <h1 id="hero-h">Infrastructure equipment, sourced to specification.</h1>
-    <p class="lead">NEWCO SOLUTION LTD sources business communications, CNG, elevator and solar equipment for businesses and institutions across Nigeria. Every enquiry starts with your specification and ends with responsibilities agreed in writing.</p>
+    <p class="lead">NEWCO SOLUTION LTD sources business communications, CNG, elevator, solar and tractor equipment for businesses and institutions across Nigeria. Every enquiry starts with your specification and ends with responsibilities agreed in writing.</p>
     <div class="actions">
       <a class="xbtn" href="request-a-quote.html"><span class="l">Discuss a requirement</span><span class="a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></a>
       <a class="gbtn" href="#areas">Explore supply areas</a>
@@ -1207,6 +1255,7 @@ a{color:inherit}
         <button role="tab" aria-selected="false" data-i="2"><span class="t"><span class="n">02</span>CNG equipment<i></i></span></button>
         <button role="tab" aria-selected="false" data-i="3"><span class="t"><span class="n">03</span>Elevators<i></i></span></button>
         <button role="tab" aria-selected="false" data-i="0"><span class="t"><span class="n">04</span>Solar energy<i></i></span></button>
+        <button role="tab" aria-selected="false" data-i="4"><span class="t"><span class="n">05</span>Tractors<i></i></span></button>
       </div>
       
     </div>
@@ -1215,13 +1264,15 @@ a{color:inherit}
   <div class="hero-line" aria-hidden="true"></div>
   <div class="hero-bars" aria-hidden="true"></div>
 </section>
+<!-- ── Home · partners ── -->
+<section class="ptb-home" aria-label="Partners"><div class="ptb-in"><div class="pt-strip"><div class="pt-head"><p class="pt-k"><i></i>Partners</p><p class="pt-note">The manufacturers and brands we work with.</p></div><ul class="pt-list"><li class="pt-t"><span class="pt-logos"><img class="pl-technova" src="assets/4c57b88a0651.png" alt="Technova" style="height:26px" loading="lazy" decoding="async"></span></li><li class="pt-t"><span class="pt-logos"><img class="pl-zubayada" src="assets/3595c51a5b8c.png" alt="Zubayada Commerce" style="height:31px" loading="lazy" decoding="async"><b class="pt-word" aria-hidden="true">Zubayada</b></span></li><li class="pt-t"><span class="pt-logos"><img class="pl-motozen" src="assets/c10e17db9476.png" alt="Motozen CNG" style="height:18px" loading="lazy" decoding="async"></span></li><li class="pt-t"><span class="pt-logos"><img class="pl-exprex" src="assets/a7b20a759ff4.png" alt="ExpreX Elevator" style="height:34px" loading="lazy" decoding="async"></span></li><li class="pt-t"><span class="pt-logos"><img class="pl-xtrapower" src="assets/697a5cfddd97.png" alt="Xtra Power" style="height:35px" loading="lazy" decoding="async"></span></li><li class="pt-t"><span class="pt-logos"><img class="pl-lovol" src="assets/7860acd1d3f0.png" alt="Lovol" style="height:19px" loading="lazy" decoding="async"></span></li></ul></div></div></section>
 
 <!-- ── Home · 01 Supply areas ───────────────────────── -->
 <section class="supply" id="areas" aria-labelledby="sup-h">
   <div class="sup-wrap">
     <div class="sup-head">
       <div><p class="sup-eye"><i></i>Supply areas</p>
-      <h2 id="sup-h">Four supply areas.<br>One way of working.</h2></div>
+      <h2 id="sup-h">Five supply areas.<br>One way of working.</h2></div>
       <p>We build supply routes one category at a time. Product scope, supplier terms and technical responsibilities are confirmed against every enquiry, never assumed.</p>
     </div>
     <div class="sup-grid ph2">
@@ -1237,6 +1288,9 @@ a{color:inherit}
       </div></a><a class="sup-card" href="supply-areas.html#solar"><div class="sup-in">
         <div class="dia ph"><img src="assets/de6c14897905.webp" alt="" loading="lazy" decoding="async" style="object-position:50% 60%"><span class="tk" aria-hidden="true"></span></div>
         <div class="txt"><div class="row"><span class="num">04</span><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></div><h3>Solar energy</h3><p>Modules, inverters, storage and supporting power equipment, sized and confirmed for each site.</p></div>
+      </div></a><a class="sup-card" href="supply-areas.html#tractors"><div class="sup-in">
+        <div class="dia ph"><img src="assets/d33ecaeb93e2.webp" alt="" loading="lazy" decoding="async" style="object-position:42% 62%"><span class="tk" aria-hidden="true"></span></div>
+        <div class="txt"><div class="row"><span class="num">05</span><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></div><h3>Tractors</h3><p>Farm tractors and implements for agriculture and estates, with assembly, parts and after-sales support confirmed.</p></div>
       </div></a>
     </div>
   </div>
@@ -1283,7 +1337,7 @@ a{color:inherit}
       <p class="enq-eye"><i></i>Preparing an enquiry</p>
       <h2 id="enq-h">A clear enquiry gets a clear answer.</h2>
       <p class="enq-lead">Five answers are enough for us to start verifying a route. Pick an area to see which five. Missing some? Send what you have.</p>
-      <div class="enq-tabs" role="tablist" aria-label="Supply area"><button type="button" role="tab" aria-selected="true" data-a="comms"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7h8v14H8z M10 7V2 M10 11h4 M10 14h4 M10 17h4"/></svg><span class="tl">Business communications</span><span class="ts">Communications</span></button><button type="button" role="tab" aria-selected="false" data-a="cng"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7a4 2 0 0 1 8 0v12a4 2 0 0 1-8 0z M8 7a4 2 0 0 0 8 0 M11 2.5h2V5"/></svg><span class="tl">CNG equipment</span><span class="ts">CNG</span></button><button type="button" role="tab" aria-selected="false" data-a="lift"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h14v18H5z M12 3v18 M7.5 10.5 9 9l1.5 1.5 M13.5 13.5 15 15l1.5-1.5"/></svg><span class="tl">Elevators & vertical transport</span><span class="ts">Elevators</span></button><button type="button" role="tab" aria-selected="false" data-a="solar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14 7 5h13l-3 9z M5.5 9.5h13 M12.5 5l-2 9 M10 14v5 M7 19h6"/></svg><span class="tl">Solar energy</span><span class="ts">Solar</span></button></div>
+      <div class="enq-tabs" role="tablist" aria-label="Supply area"><button type="button" role="tab" aria-selected="true" data-a="comms"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7h8v14H8z M10 7V2 M10 11h4 M10 14h4 M10 17h4"/></svg><span class="tl">Business communications</span><span class="ts">Communications</span></button><button type="button" role="tab" aria-selected="false" data-a="cng"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7a4 2 0 0 1 8 0v12a4 2 0 0 1-8 0z M8 7a4 2 0 0 0 8 0 M11 2.5h2V5"/></svg><span class="tl">CNG equipment</span><span class="ts">CNG</span></button><button type="button" role="tab" aria-selected="false" data-a="lift"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h14v18H5z M12 3v18 M7.5 10.5 9 9l1.5 1.5 M13.5 13.5 15 15l1.5-1.5"/></svg><span class="tl">Elevators & vertical transport</span><span class="ts">Elevators</span></button><button type="button" role="tab" aria-selected="false" data-a="solar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14 7 5h13l-3 9z M5.5 9.5h13 M12.5 5l-2 9 M10 14v5 M7 19h6"/></svg><span class="tl">Solar energy</span><span class="ts">Solar</span></button><button type="button" role="tab" aria-selected="false" data-a="tractor"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17a3 3 0 1 0 6 0a3 3 0 1 0-6 0 M15.5 18a2 2 0 1 0 4 0a2 2 0 1 0-4 0 M6 14V7h6l2 5h5v4 M9 7V4 M12 12H6"/></svg><span class="tl">Tractors</span><span class="ts">Tractors</span></button></div>
     </div>
     <div class="enq-vis">
       <div class="sheet" role="tabpanel" aria-live="polite">
@@ -1296,7 +1350,7 @@ a{color:inherit}
       <div class="enq-route" aria-hidden="true"><span>01 Requirement</span><i></i><span class="nx">02 Verification</span></div>
     </div>
   </div>
-  <script type="application/json" id="enq-data">{"comms": {"n": "Business communications", "rows": "<li style=\"--k:0\" title=\"How many people need a device.\"><span class=\"rn\">01</span><b>Users</b><em>60 site staff</em><i class=\"tick\" aria-hidden=\"true\"></i></li><li style=\"--k:1\" title=\"Sites, distances, indoor or outdoor.\"><span class=\"rn\">02</span><b>Coverage</b><em>3 sites, up to 15 km apart</em><i class=\"tick\" aria-hidden=\"true\"></i></li><li style=\"--k:2\" title=\"What the devices are for day to day.\"><span class=\"rn\">03</span><b>Use</b><em>security and logistics</em><i class=\"tick\" aria-hidden=\"true\"></i></li><li style=\"--k:3\" title=\"Licences or frequencies you already hold.\"><span class=\"rn\">04</span><b>Approvals</b><em>none yet</em><i class=\"tick\" aria-hidden=\"true\"></i></li><li style=\"--k:4\" title=\"When the devices are needed.\"><span class=\"rn\">05</span><b>Timeline</b><em>within 8 weeks</em><i class=\"tick\" aria-hidden=\"true\"></i></li>"}, "cng": {"n": "CNG equipment", "rows": "<li style=\"--k:0\" title=\"Vehicles, dispensing or industrial use.\"><span class=\"rn\">01</span><b>Application</b><em>fleet conversion</em><i class=\"tick\" aria-hidden=\"true\"></i></li><li style=\"--k:1\" title=\"Number of vehicles or daily consumption.\"><span class=\"rn\">02</span><b>Volume</b><em>25 light trucks</em><i class=\"tick\" aria-hidden=\"true\"></i></li><li style=\"--k:2\" title=\"Location and any existing gas supply.\"><span class=\"rn\">03</span><b>Site</b><em>depot, Kaduna</em><i class=\"tick\" aria-hidden=\"true\"></i></li><li style=\"--k:3\" title=\"Safety or pressure requirements you must meet.\"><span class=\"rn\">04</span><b>Standards</b><em>client HSE specification</em><i class=\"tick\" aria-hidden=\"true\"></i></li><li style=\"--k:4\" title=\"When equipment must be on site.\"><span class=\"rn\">05</span><b>Timeline</b><em>phased over 6 months</em><i class=\"tick\" aria-hidden=\"true\"></i></li>"}, "lift": {"n": "Elevators & vertical transport", "rows": "<li style=\"--k:0\" title=\"Type of building and number of floors.\"><span class=\"rn\">01</span><b>Building</b><em>8-storey residential</em><i class=\"tick\" aria-hidden=\"true\"></i></li><li style=\"--k:1\" title=\"Passenger or goods, and capacity.\"><span class=\"rn\">02</span><b>Load</b><em>8 passengers</em><i class=\"tick\" aria-hidden=\"true\"></i></li><li style=\"--k:2\" title=\"New build or an existing shaft.\"><span class=\"rn\">03</span><b>Shaft</b><em>new build, shaft in design</em><i class=\"tick\" aria-hidden=\"true\"></i></li><li style=\"--k:3\" title=\"Supply available on site.\"><span class=\"rn\">04</span><b>Power</b><em>three-phase, generator backup</em><i class=\"tick\" aria-hidden=\"true\"></i></li><li style=\"--k:4\" title=\"Installation window in the programme.\"><span class=\"rn\">05</span><b>Timeline</b><em>after structure, Q3</em><i class=\"tick\" aria-hidden=\"true\"></i></li>"}, "solar": {"n": "Solar energy", "rows": "<li style=\"--k:0\" title=\"Daily load, or the kW / kVA you want to cover.\"><span class=\"rn\">01</span><b>Energy need</b><em>40 kW, daytime office load</em><i class=\"tick\" aria-hidden=\"true\"></i></li><li style=\"--k:1\" title=\"Rooftop or ground mount, and where it is.\"><span class=\"rn\">02</span><b>Site</b><em>flat commercial roof</em><i class=\"tick\" aria-hidden=\"true\"></i></li><li style=\"--k:2\" title=\"How many hours of storage you need.\"><span class=\"rn\">03</span><b>Backup</b><em>6 hours overnight</em><i class=\"tick\" aria-hidden=\"true\"></i></li><li style=\"--k:3\" title=\"On-grid, off-grid or hybrid.\"><span class=\"rn\">04</span><b>Grid</b><em>hybrid with generator</em><i class=\"tick\" aria-hidden=\"true\"></i></li><li style=\"--k:4\" title=\"When it needs to be running.\"><span class=\"rn\">05</span><b>Timeline</b><em>before Q2</em><i class=\"tick\" aria-hidden=\"true\"></i></li>"}}</script>
+  <script type="application/json" id="enq-data">{"comms": {"n": "Business communications", "rows": "<li style=\"--k:0\" title=\"How many people need a device.\"><span class=\"rn\">01</span><b>Users</b><em>60 site staff</em><i class=\"tick\" aria-hidden=\"true\"></i></li><li style=\"--k:1\" title=\"Sites, distances, indoor or outdoor.\"><span class=\"rn\">02</span><b>Coverage</b><em>3 sites, up to 15 km apart</em><i class=\"tick\" aria-hidden=\"true\"></i></li><li style=\"--k:2\" title=\"What the devices are for day to day.\"><span class=\"rn\">03</span><b>Use</b><em>security and logistics</em><i class=\"tick\" aria-hidden=\"true\"></i></li><li style=\"--k:3\" title=\"Licences or frequencies you already hold.\"><span class=\"rn\">04</span><b>Approvals</b><em>none yet</em><i class=\"tick\" aria-hidden=\"true\"></i></li><li style=\"--k:4\" title=\"When the devices are needed.\"><span class=\"rn\">05</span><b>Timeline</b><em>within 8 weeks</em><i class=\"tick\" aria-hidden=\"true\"></i></li>"}, "cng": {"n": "CNG equipment", "rows": "<li style=\"--k:0\" title=\"Vehicles, dispensing or industrial use.\"><span class=\"rn\">01</span><b>Application</b><em>fleet conversion</em><i class=\"tick\" aria-hidden=\"true\"></i></li><li style=\"--k:1\" title=\"Number of vehicles or daily consumption.\"><span class=\"rn\">02</span><b>Volume</b><em>25 light trucks</em><i class=\"tick\" aria-hidden=\"true\"></i></li><li style=\"--k:2\" title=\"Location and any existing gas supply.\"><span class=\"rn\">03</span><b>Site</b><em>depot, Kaduna</em><i class=\"tick\" aria-hidden=\"true\"></i></li><li style=\"--k:3\" title=\"Safety or pressure requirements you must meet.\"><span class=\"rn\">04</span><b>Standards</b><em>client HSE specification</em><i class=\"tick\" aria-hidden=\"true\"></i></li><li style=\"--k:4\" title=\"When equipment must be on site.\"><span class=\"rn\">05</span><b>Timeline</b><em>phased over 6 months</em><i class=\"tick\" aria-hidden=\"true\"></i></li>"}, "lift": {"n": "Elevators & vertical transport", "rows": "<li style=\"--k:0\" title=\"Type of building and number of floors.\"><span class=\"rn\">01</span><b>Building</b><em>8-storey residential</em><i class=\"tick\" aria-hidden=\"true\"></i></li><li style=\"--k:1\" title=\"Passenger or goods, and capacity.\"><span class=\"rn\">02</span><b>Load</b><em>8 passengers</em><i class=\"tick\" aria-hidden=\"true\"></i></li><li style=\"--k:2\" title=\"New build or an existing shaft.\"><span class=\"rn\">03</span><b>Shaft</b><em>new build, shaft in design</em><i class=\"tick\" aria-hidden=\"true\"></i></li><li style=\"--k:3\" title=\"Supply available on site.\"><span class=\"rn\">04</span><b>Power</b><em>three-phase, generator backup</em><i class=\"tick\" aria-hidden=\"true\"></i></li><li style=\"--k:4\" title=\"Installation window in the programme.\"><span class=\"rn\">05</span><b>Timeline</b><em>after structure, Q3</em><i class=\"tick\" aria-hidden=\"true\"></i></li>"}, "solar": {"n": "Solar energy", "rows": "<li style=\"--k:0\" title=\"Daily load, or the kW / kVA you want to cover.\"><span class=\"rn\">01</span><b>Energy need</b><em>40 kW, daytime office load</em><i class=\"tick\" aria-hidden=\"true\"></i></li><li style=\"--k:1\" title=\"Rooftop or ground mount, and where it is.\"><span class=\"rn\">02</span><b>Site</b><em>flat commercial roof</em><i class=\"tick\" aria-hidden=\"true\"></i></li><li style=\"--k:2\" title=\"How many hours of storage you need.\"><span class=\"rn\">03</span><b>Backup</b><em>6 hours overnight</em><i class=\"tick\" aria-hidden=\"true\"></i></li><li style=\"--k:3\" title=\"On-grid, off-grid or hybrid.\"><span class=\"rn\">04</span><b>Grid</b><em>hybrid with generator</em><i class=\"tick\" aria-hidden=\"true\"></i></li><li style=\"--k:4\" title=\"When it needs to be running.\"><span class=\"rn\">05</span><b>Timeline</b><em>before Q2</em><i class=\"tick\" aria-hidden=\"true\"></i></li>"}, "tractor": {"n": "Tractors", "rows": "<li style=\"--k:0\" title=\"Crops, haulage or estate work.\"><span class=\"rn\">01</span><b>Use</b><em>maize and soybean farming</em><i class=\"tick\" aria-hidden=\"true\"></i></li><li style=\"--k:1\" title=\"Area to be worked, in hectares.\"><span class=\"rn\">02</span><b>Land</b><em>250 hectares</em><i class=\"tick\" aria-hidden=\"true\"></i></li><li style=\"--k:2\" title=\"Horsepower range you need.\"><span class=\"rn\">03</span><b>Power</b><em>80 to 100 hp, 4WD</em><i class=\"tick\" aria-hidden=\"true\"></i></li><li style=\"--k:3\" title=\"Ploughs, harrows, planters or trailers.\"><span class=\"rn\">04</span><b>Implements</b><em>disc plough and planter</em><i class=\"tick\" aria-hidden=\"true\"></i></li><li style=\"--k:4\" title=\"When the tractors must be working.\"><span class=\"rn\">05</span><b>Timeline</b><em>before the planting season</em><i class=\"tick\" aria-hidden=\"true\"></i></li>"}}</script>
 </section>
 
 <!-- ── Home · 04 Partnerships ─────────────────────── -->
@@ -1368,7 +1422,7 @@ a{color:inherit}
 <footer class="ft">
   <div class="ft-top">
     <div class="ft-about"><p>Equipment sourcing, supply and technology-support solutions for businesses, institutions and projects in Nigeria.</p></div>
-    <nav class="ft-col" aria-label="Supply areas"><h4>Supply areas</h4><a href="supply-areas.html#communications">Business communications</a><a href="supply-areas.html#cng">CNG equipment</a><a href="supply-areas.html#elevators">Elevators &amp; vertical transport</a><a href="supply-areas.html#solar">Solar energy</a></nav>
+    <nav class="ft-col" aria-label="Supply areas"><h4>Supply areas</h4><a href="supply-areas.html#communications">Business communications</a><a href="supply-areas.html#cng">CNG equipment</a><a href="supply-areas.html#elevators">Elevators &amp; vertical transport</a><a href="supply-areas.html#solar">Solar energy</a><a href="supply-areas.html#tractors">Tractors</a></nav>
     <nav class="ft-col" aria-label="Company"><h4>Company</h4><a href="about.html">About</a><a href="index.html#how">How we work</a><a href="partnerships.html">Partnerships</a><a href="contact.html">Contact</a></nav>
     <nav class="ft-col" aria-label="Legal"><h4>Legal</h4><a href="privacy.html">Privacy notice</a></nav>
   </div>
@@ -1661,6 +1715,33 @@ a{color:inherit}
     var cl=new THREE.PointLight(C.green,0,4);car.add(cl);
     return {group:g,mats:[M.car],anchor:V(0,Hs+1.1,0),h:Hs+.7,car:car,carLight:cl,Hs:Hs};
   }
+  function makeTractor(){
+    var g=new THREE.Group();
+    rbox(3.9,.12,2.7,M.base,0,.06,0,g);
+    var tyre=std({color:0x0e2223,roughness:.92,metalness:0});
+    var wheels=[];
+    function wheel(x,z,r,w){var wg=new THREE.Group();wg.position.set(x,.12+r,z);g.add(wg);
+      var t=new THREE.Mesh(new THREE.CylinderGeometry(r,r,w,40),tyre);t.rotation.x=Math.PI/2;t.castShadow=t.receiveShadow=true;wg.add(t);
+      for(var k=0;k<14;k++){var a=k/14*Math.PI*2,lug=new THREE.Mesh(new THREE.BoxGeometry(.07,.07,w*.96),tyre);lug.position.set(Math.cos(a)*r,Math.sin(a)*r,0);lug.rotation.z=a;wg.add(lug)}
+      var hb=new THREE.Mesh(new THREE.CylinderGeometry(r*.55,r*.55,w+.02,32),M.metalDark);hb.rotation.x=Math.PI/2;wg.add(hb);
+      var cap=new THREE.Mesh(new THREE.CylinderGeometry(r*.2,r*.2,w+.06,16),M.metal);cap.rotation.x=Math.PI/2;wg.add(cap);
+      wheels.push(wg);return wg}
+    wheel(-.95,.98,.82,.5);wheel(-.95,-.98,.82,.5);wheel(1.2,.84,.48,.3);wheel(1.2,-.84,.48,.3);
+    rbox(2.7,.34,.86,M.tile,.15,.78,0,g,false,.05);
+    var hood=rbox(1.55,.62,.92,M.tank,.95,1.26,0,g,false,.12);
+    for(var v=0;v<4;v++)box(.012,.4,.7,M.band,1.73,1.1+v*.0,0,g,true);
+    box(.02,.36,.66,M.metalDark,1.73,1.18,0,g,true);
+    rbox(.9,.5,1.02,M.tank,-.62,1.2,0,g,false,.08);
+    [[.2,1],[.2,-1],[-1.35,1],[-1.35,-1]].forEach(function(p){box(.06,1.2,.06,M.metalDark,p[0]*1,2.0,p[1]*.5,g)});
+    var cab=mesh(new THREE.BoxGeometry(1.55,1.18,1.0),M.glass,-.58,2.0,0,g,true);cab.renderOrder=2;
+    rbox(1.75,.12,1.18,M.baseDark,-.58,2.64,0,g,false,.04);
+    [[-.95,.98],[-.95,-.98]].forEach(function(p){var fd=mesh(new THREE.CylinderGeometry(.9,.9,.54,32,1,true,Math.PI/2,Math.PI),M.tile,p[0],.94,p[1],g);fd.rotation.x=Math.PI/2;fd.rotation.y=0;fd.material=M.tile});
+    var ex=mesh(new THREE.CylinderGeometry(.05,.05,1.0,12),M.metalDark,.6,2.0,.32,g);
+    mesh(new THREE.CylinderGeometry(.065,.05,.1,12),M.metal,.6,2.52,.32,g);
+    var lamp=glow(.42,C.green,0);lamp.position.set(1.78,1.42,0);g.add(lamp);
+    var beacon=glow(.34,0xbff5d6,.85);beacon.position.set(-.58,2.78,0);g.add(beacon);
+    return {group:g,mats:[M.tank],anchor:V(0,3.25,0),h:2.75,wheels:wheels,lamp:lamp};
+  }
   function makeHub(){
     var g=new THREE.Group();
     rbox(1.9,.42,1.9,M.base,0,.21,0,g,false,.07);rbox(1.3,.32,1.3,M.tile,0,.58,0,g,false,.05);
@@ -1743,9 +1824,9 @@ a{color:inherit}
   var hatchMat=new THREE.MeshBasicMaterial({color:C.green,transparent:true,opacity:.08});
   var hatch=mesh(new THREE.PlaneGeometry(5.2,5.2),hatchMat,0,.006,0,scene,true);hatch.rotation.x=-Math.PI/2;
   (function(){var q=2.6,p=[-q,.008,-q,q,.008,-q,q,.008,-q,q,.008,q,q,.008,q,-q,.008,q,-q,.008,q,-q,.008,-q];var g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(p,3));scene.add(new THREE.LineSegments(g,new THREE.LineBasicMaterial({color:C.green,transparent:true,opacity:.45})))})();
-  var models=[makeSolar(),makeMast(),makeCNG(),makeLift()];
+  var models=[makeSolar(),makeMast(),makeCNG(),makeLift(),makeTractor()];
   // even out the visual weight: short pieces scale up, tall pieces scale down
-  var SCALE=[1.18,.66,1.18,.68], FOOT=[2.15,.95,2.05,1.05], NAMES=['Solar energy','Communications','CNG equipment','Elevators'];
+  var SCALE=[1.18,.66,1.18,.68,1.1], FOOT=[2.15,.95,2.05,1.05,2.1], NAMES=['Solar energy','Communications','CNG equipment','Elevators','Tractors'];
   models.forEach(function(m,k){m.group.scale.setScalar(SCALE[k]);m.h*=SCALE[k];FOOT[k]*=SCALE[k]});
   models.forEach(function(m,k){
     m.plane=new THREE.Plane(new THREE.Vector3(0,-1,0),0);
@@ -1773,13 +1854,14 @@ a{color:inherit}
   var camNow=null;
 
   var tagEl=document.getElementById('tag1'),tagB=tagEl.querySelector('b'),tagS=tagEl.querySelector('span');
-  var ORDER=[1,2,3,0],state=1,prev=-1,stateT0=performance.now(),running=false,raf=0,visible=true,paused=reduce,resumeT=0,DUR=3600,CLEAR=420,BUILD=1000;
+  var ORDER=[1,2,3,0,4],state=1,prev=-1,stateT0=performance.now(),running=false,raf=0,visible=true,paused=reduce,resumeT=0,DUR=3600,CLEAR=420,BUILD=1000;
   var tabs=[].slice.call(document.querySelectorAll('.steps button')),stepsEl=document.querySelector('.steps');
   function setState(i,user){
     if(camNow)camFrom={d:camNow.d,x:camNow.x,y:camNow.y};camT0=performance.now();
     prev=(prev===-1&&state===i)?-1:state;state=i;stateT0=performance.now();
     tabs.forEach(function(b,k){b.setAttribute('aria-selected',+b.dataset.i===i?'true':'false');var t=b.querySelector('.t i');t.style.animation='none';t.style.animationDelay='';void t.offsetWidth;t.style.animation=''});
     tagB.textContent='0'+(ORDER.indexOf(i)+1);tagS.textContent=NAMES[i];
+    if(stepsEl.scrollWidth>stepsEl.clientWidth+2){var ab=tabs.filter(function(b){return +b.dataset.i===i})[0];if(ab)stepsEl.scrollTo({left:Math.max(0,ab.offsetLeft-stepsEl.offsetLeft-16),behavior:reduce?'auto':'smooth'})}
     if(user){paused=true;stepsEl.classList.add('paused');clearTimeout(resumeT);resumeT=setTimeout(function(){paused=reduce;if(!reduce)stepsEl.classList.remove('paused');stateT0=performance.now()},9000)}
     if(!running)frame(performance.now());
   }
@@ -1806,11 +1888,12 @@ a{color:inherit}
     mast.rings.forEach(function(r,j){var ph=reduce?(j+1)/3.5:((t*.55+j/3)%1);var s=.4+ph*3.2;r.scale.set(s,s,s);r.material.opacity=.6*(1-ph)*(state===1?bin:0)});
     lift.car.position.y=.85+(reduce?.6:(Math.sin(t*.9)*.5+.5))*(lift.Hs-1.5);lift.carLight.intensity=state===3?1.2:0;
     cng.lamps.forEach(function(l,j){l.material.opacity=(state===2?bin:0)*(reduce?.6:Math.max(0,Math.sin(t*3-j*.9)))*.8});
+    var trac=models[4];if(!reduce)trac.wheels.forEach(function(w){w.rotation.z=-t*.6});trac.lamp.material.opacity=(state===4?bin:0)*(reduce?.7:.55+.25*Math.sin(t*2.2));
     dust(dt,t);
     renderer.render(scene,camera);
     var s=toScreen(V(0,cur.h+.9,0));tagEl.style.left=s[0]+'px';tagEl.style.top=Math.max(s[1],innerWidth>1024?124:46)+'px';tagEl.style.opacity=reduce?1:sm((el-CLEAR-BUILD*.7)/300);
   }
-  function loop(now){if(!running)return;frame(now);if(!paused&&now-stateT0>DUR)setState(ORDER[(ORDER.indexOf(state)+1)%4],false);raf=requestAnimationFrame(loop)}
+  function loop(now){if(!running)return;frame(now);if(!paused&&now-stateT0>DUR)setState(ORDER[(ORDER.indexOf(state)+1)%5],false);raf=requestAnimationFrame(loop)}
   function start(){if(running||reduce)return;running=true;var now=performance.now();last=now;
     // coming back on screen: keep the built scene, and restart the tab bar in step with the timer
     if(now-stateT0>DUR-300){stateT0=now-(CLEAR+BUILD+200);var bi=tabs[state]&&tabs[state].querySelector('.t i');if(bi){bi.style.animation='none';void bi.offsetWidth;bi.style.animation='';bi.style.animationDelay=-(CLEAR+BUILD+200)+'ms'}}
@@ -1829,6 +1912,38 @@ a{color:inherit}
   document.addEventListener('visibilitychange',function(){document.hidden?stop():(visible&&start())});
 })();
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2445,7 +2560,7 @@ new IntersectionObserver(function(en,o){if(en[0].isIntersecting){s.classList.add
   render();
 })();
 </script>
-<script>(function(){var SUPIMG=[].slice.call(document.querySelectorAll('.sup-card .dia.ph img')).map(function(i){return i.src}),AREA_I={comms:0,cng:1,lift:2,solar:3};
+<script>(function(){var SUPIMG=[].slice.call(document.querySelectorAll('.sup-card .dia.ph img')).map(function(i){return i.src}),AREA_I={comms:0,cng:1,lift:2,solar:3,tractor:4};
   var box=document.querySelector('.eqs');if(!box)return;var tabs=[].slice.call(document.querySelectorAll('.enq-tabs button'));
   function set(){var b=tabs.filter(function(x){return x.getAttribute('aria-selected')==='true'})[0];var top=box.querySelector('.eqs-top');var u=b&&SUPIMG[AREA_I[b.dataset.a]];if(top&&u)top.style.backgroundImage='url('+u+')'}
   tabs.forEach(function(b){b.addEventListener('click',function(){setTimeout(set,0)})});set();

@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Supply areas · NewCo Solutions</title>
-<meta name="description" content="Business communications, CNG, elevator and solar equipment sourced to specification for businesses, institutions and projects in Nigeria.">
+<meta name="description" content="Business communications, CNG, elevator, solar and tractor equipment sourced to specification for businesses, institutions and projects in Nigeria.">
 <meta name="theme-color" content="#162F31"><meta property="og:type" content="website"><meta property="og:site_name" content="NewCo Solutions">
-<meta property="og:title" content="Supply areas · NewCo Solutions"><meta property="og:description" content="Four supply areas, developed in stages.">
+<meta property="og:title" content="Supply areas · NewCo Solutions"><meta property="og:description" content="Five supply areas, developed in stages.">
 <meta property="og:image" content="https://www.newcosolutions.org/og-image.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://www.newcosolutions.org/og-image.jpg">
 
 <style>
@@ -182,10 +182,20 @@ a{color:inherit}
   .badge{font-size:10px;letter-spacing:.1em;line-height:1.5;max-width:100%}
 }
 @media (max-width:640px){.steps .n{display:none}
-  .steps{display:grid;grid-template-columns:1fr 1fr;gap:6px;overflow:visible;margin:0;padding:0}.steps button,.steps .t{width:100%}.steps .t{justify-content:center}}
+  .steps{display:flex;flex-wrap:nowrap;gap:6px;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:none;margin:0 calc(var(--edge)*-1);padding:0 var(--edge) 2px;scroll-padding:0 var(--edge)}.steps::-webkit-scrollbar{display:none}.steps button{flex:none;scroll-snap-align:start}.steps .t{justify-content:center;padding-left:16px;padding-right:16px}}
 @media (prefers-reduced-motion:reduce){
   .steps button[aria-selected="true"] .t i{animation:none;transform:scaleX(1)}
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -432,7 +442,7 @@ a{color:inherit}
 .team h2{font:400 clamp(2.3rem,4.6vw,4.3rem)/1.03 var(--f-sans);letter-spacing:-.045em;margin:0;max-width:14ch}
 .team-lead{margin:0;font-size:clamp(1rem,1.2vw,1.12rem);line-height:1.6;color:rgba(244,243,238,.7);max-width:44ch}
 .team-strip{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:1px;background:rgba(244,243,238,.1);border:1px solid rgba(244,243,238,.1)}
-.tm{grid-column:span 3;position:relative;height:clamp(400px,33vw,490px);min-width:0;overflow:hidden;outline:none;cursor:default;
+.tm{grid-column:span 4;position:relative;height:clamp(400px,33vw,490px);min-width:0;overflow:hidden;outline:none;cursor:default;
   background:radial-gradient(ellipse 90% 70% at 50% 32%,#2C4A4A 0%,#1C3436 55%,#122627 100%);transition:background .5s ease}
 .tm img{position:absolute;left:50%;bottom:0;width:100%;max-width:470px;max-height:96%;object-fit:contain;object-position:bottom;height:auto;transform:translateX(-50%);
   filter:grayscale(1) contrast(1.08) brightness(.97);transition:filter .6s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
@@ -459,7 +469,7 @@ a{color:inherit}
 @media (prefers-reduced-motion:reduce){.tm,.tm img{transition:none}}
 @media (max-width:860px){.team-head{grid-template-columns:1fr}
   .team-strip{grid-template-columns:repeat(6,minmax(0,1fr))}
-  .tm{grid-column:span 3;height:clamp(360px,50vw,430px)}.tm:nth-child(-n+3){grid-column:span 2;height:clamp(380px,56vw,460px)}
+  .tm{grid-column:span 2;height:clamp(360px,50vw,430px)}.tm:nth-child(-n+3){grid-column:span 2;height:clamp(380px,56vw,460px)}
   .tm:nth-child(-n+3) .tm-tx{left:16px;right:16px;bottom:18px}.tm:nth-child(-n+3) .tm-tx h3{font-size:1.05rem}.tm:nth-child(-n+3) .tm-i{left:16px}
   .tm img{filter:none}}
 .faq{background:#F2F3EF;color:#162F31;padding:clamp(88px,9vw,136px) 0}
@@ -612,7 +622,9 @@ a{color:inherit}
   /* 03 preparing an enquiry: pick an area right above the brief */
   .enq-wrap{display:flex;flex-direction:column;align-items:stretch;gap:0}
   .enq-copy{display:contents}
-  .enq-tabs{order:3;display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:26px 0 16px;max-width:none}
+  .enq-tabs{order:3;display:flex;flex-wrap:nowrap;gap:8px;margin:26px calc(var(--edge)*-1) 16px;padding:0 var(--edge) 2px;max-width:none;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:none}
+  .enq-tabs::-webkit-scrollbar{display:none}
+  .enq-tabs button{flex:none;scroll-snap-align:start}
   .enq-tabs button{--cut:10px;gap:10px;padding:13px 12px;font-size:14.5px;min-height:0}
   .enq-tabs button svg{width:18px;height:18px;flex:none}
   .enq-vis{order:4;width:100%;max-width:none;padding:0;background:none;clip-path:none}
@@ -696,6 +708,13 @@ a{color:inherit}
   .team-strip .tm:nth-child(n){grid-column:auto;display:flex;flex-direction:column;height:auto;aspect-ratio:auto;padding:0;overflow:hidden;
     background:radial-gradient(ellipse 90% 70% at 50% 32%,#2C4A4A 0%,#1C3436 55%,#122627 100%)}
   .team-strip .tm:nth-child(-n+3){grid-column:1 / -1}
+  /* executives: equal rows, photo left, name right */
+  .team-strip .tm:nth-child(n+4){grid-column:1 / -1;flex-direction:row;align-items:stretch;min-height:184px}
+  .team-strip .tm:nth-child(n+4) img{width:42%!important;max-width:170px!important;aspect-ratio:auto!important;height:auto!important;min-height:184px;object-fit:cover;object-position:50% 18%!important;flex:none}
+  .team-strip .tm:nth-child(n+4) .tm-tx{margin-top:0!important;border-top:0!important;border-left:2px solid #73D199;display:flex;flex-direction:column;justify-content:center;padding:18px 18px!important}
+  .team-strip .tm:nth-child(n+4) .tm-tx h3{font-size:1.15rem!important;line-height:1.25!important;margin-bottom:10px!important}
+  .team-strip .tm:nth-child(n+4) .tm-tx p{font-size:10.5px!important}
+  .team-strip .tm:nth-child(n+4) .tm-i{display:none}
   .tm::after{display:none}
   .team-strip .tm:nth-child(n) img{position:relative;left:auto;bottom:auto;transform:none!important;width:100%;height:auto;max-width:none;max-height:none;aspect-ratio:4 / 5;object-fit:cover;object-position:50% 0;
     filter:grayscale(1) contrast(1.08) brightness(.97);transition:filter .5s ease}
@@ -789,7 +808,7 @@ a{color:inherit}
 .ab-lead{margin:0;font-size:clamp(1rem,1.2vw,1.12rem);line-height:1.6;max-width:46ch;color:#4A5D5E}
 .spt{background:#E3EFE5;color:#162F31;padding:clamp(88px,9vw,136px) 0}
 .spt-wrap{padding:0 var(--edge)}
-.svc-g{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.svc-g{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
 .svc{display:grid;grid-template-rows:subgrid;grid-row:span 3;background:#FAFBF7;border:1px solid rgba(22,47,49,.08);transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s ease}
 .svc:hover{transform:translateY(-4px);box-shadow:0 24px 40px -28px rgba(22,47,49,.35)}
 .svc-h{position:relative;padding:28px clamp(20px,2vw,28px) 24px;border-bottom:1px solid rgba(22,47,49,.08)}
@@ -809,7 +828,8 @@ a{color:inherit}
 .svc-f:hover{background:#162F31;color:#F4F3EE}.svc-f:hover span{background:#73D199;border-color:#73D199;color:#162F31}
 .svc-c{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
 .svc-c li{padding:7px 10px;background:#fff;border:1px solid rgba(22,47,49,.12);font-size:13px;color:#162F31}
-@media (max-width:1100px){.svc-g{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:1240px){.svc-g{grid-template-columns:repeat(6,minmax(0,1fr))}.svc{grid-column:span 2}.svc:nth-child(n+4){grid-column:span 3}}
+@media (max-width:900px){.svc-g{grid-template-columns:repeat(2,minmax(0,1fr))}.svc,.svc:nth-child(n+4){grid-column:auto}.svc:last-child{grid-column:1 / -1}}
 @media (max-width:640px){.svc-g{grid-template-columns:1fr;gap:10px}.svc-n{font-size:2.4rem;margin-bottom:16px}.svc-h h3{min-height:0}}
 @media (max-width:960px){.sp-row,.sp-row.flip{grid-template-columns:1fr;gap:30px}.sp-row.flip .sp-tx{order:0}.sp-ph{order:-1}}
 @media (max-width:860px){.ab-head{grid-template-columns:1fr}}
@@ -821,6 +841,32 @@ a{color:inherit}
   .sp-sc{grid-template-columns:1fr}
   .sp-act{margin-top:26px}
 }
+
+/* ── partner logos: label on top, one open row (cards on phones) ── */
+.pt-strip{display:block;margin-top:clamp(40px,4.5vw,64px);padding-top:clamp(28px,3vw,40px);border-top:1px solid rgba(22,47,49,.14)}
+.pt-head{margin-bottom:clamp(14px,1.6vw,22px)}
+.pt-k{display:flex;align-items:center;gap:10px;margin:0;font:500 11px/1 var(--f-mono);letter-spacing:.16em;text-transform:uppercase;color:#4A5D5E}
+.pt-k i{width:6px;height:6px;background:#2E8A5A;flex:none}
+.pt-note{display:none}
+.pt-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));align-items:center}
+.pt-t{display:flex;align-items:center;justify-content:center;min-height:96px;padding:12px}
+.pt-logos{display:flex;align-items:center;justify-content:center;gap:10px;color:#162F31}
+.pt-logos img{display:block;width:auto;max-width:100%;object-fit:contain;opacity:.82;transition:opacity .3s ease;transform:scale(1.18)}
+.pt-t:hover .pt-logos img,.pt-t:hover .pt-word{opacity:1}
+.pt-word{font:600 12.5px/1 var(--f-sans);letter-spacing:.14em;text-transform:uppercase;color:#162F31;opacity:.82;transform:scale(1.12);margin-left:6px}
+@media (max-width:1100px){.pt-list{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:8px}.pt-logos img{transform:none}.pt-word{transform:none;margin-left:0}}
+@media (max-width:760px){
+  .pt-strip{display:block;padding-top:28px}
+  .pt-head{margin-bottom:18px}
+  .pt-note{display:none}
+  .pt-list{grid-template-columns:1fr 1fr!important;gap:10px;border:0!important}
+  .pt-t{min-height:84px;padding:16px;border:0!important;background:#FAFBF7;box-shadow:inset 0 0 0 1px rgba(22,47,49,.07)}
+  .pt-logos img{max-width:none}
+  .pt-logos .pl-technova{height:24px!important}.pt-logos .pl-zubayada{height:30px!important}.pt-logos .pl-motozen{height:17px!important}
+  .pt-logos .pl-exprex{height:31px!important}.pt-logos .pl-xtrapower{height:32px!important}.pt-logos .pl-lovol{height:17px!important}
+  .pt-word{font-size:11px;letter-spacing:.12em}
+}
+.sp-ptn{background:#F2F3EF;padding:0 0 clamp(64px,7vw,104px)}.sp-ptn-in{padding:0 var(--edge)}.sp-ptn .pt-strip{margin-top:0}
 
 .crumb{display:flex;justify-content:center;align-items:center;gap:16px;margin:0 0 30px;font:500 11.5px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase}
 .crumb a{color:#162F31;text-decoration:none}.crumb span{color:rgba(22,47,49,.35)}.crumb b{font-weight:500;color:rgba(22,47,49,.5)}
@@ -888,7 +934,7 @@ a{color:inherit}
 
   <div class="vis">
     <canvas id="field" aria-hidden="true"></canvas>
-    <div id="labels" aria-hidden="true"><span class="tag off"><b>04</b>Solar energy</span><span class="tag on"><b>01</b>Communications</span><span class="tag off"><b>02</b>CNG equipment</span><span class="tag off"><b>03</b>Elevators</span></div>
+    <div id="labels" aria-hidden="true"><span class="tag off"><b>04</b>Solar energy</span><span class="tag on"><b>01</b>Communications</span><span class="tag off"><b>02</b>CNG equipment</span><span class="tag off"><b>03</b>Elevators</span><span class="tag off"><b>05</b>Tractors</span></div>
     <div class="mid">
       <div class="steps-cap">Supply areas</div>
       <div class="steps" role="tablist" aria-label="Supply areas">
@@ -896,6 +942,7 @@ a{color:inherit}
         <button role="tab" aria-selected="false" data-i="2"><span class="t"><span class="n">02</span>CNG equipment<i></i></span></button>
         <button role="tab" aria-selected="false" data-i="3"><span class="t"><span class="n">03</span>Elevators<i></i></span></button>
         <button role="tab" aria-selected="false" data-i="0"><span class="t"><span class="n">04</span>Solar energy<i></i></span></button>
+        <button role="tab" aria-selected="false" data-i="4"><span class="t"><span class="n">05</span>Tractors<i></i></span></button>
       </div>
       
     </div>
@@ -908,33 +955,41 @@ a{color:inherit}
 <!-- ── Areas · 01 Notice ─────────────────────────── -->
 <section class="sp-notice" aria-label="Availability">
   <div class="sp-notice-in"><span class="sp-i" aria-hidden="true">i</span>
-    <p><b>Availability.</b> Listing an area here does not mean stock is held or that a supplier appointment exists. Eligibility, pricing, warranty and installation responsibility are confirmed against each enquiry.</p></div>
+    <p><b>Availability.</b> Stock, pricing, warranty and installation responsibility are confirmed against each enquiry, in writing, before any order.</p></div>
 </section>
 
-<!-- ── Areas · 02 The four areas ─────────────────────── -->
+<!-- ── Areas · 02 The five areas ─────────────────────── -->
 <section class="sp" id="areas" aria-label="Supply areas">
   <div class="sp-wrap"><article class="sp-row" id="communications">
-      <div class="sp-tx"><span class="sp-n">01 / 04</span><h2>Business communications</h2><p>Push-to-talk and two-way radio equipment for security, logistics, site and event teams.</p>
+      <div class="sp-tx"><span class="sp-n">01 / 05</span><h2>Business communications</h2><p>Push-to-talk and two-way radio equipment for security, logistics, site and event teams.</p>
         <p class="sp-k">What we can source</p><ul class="sp-sc"><li>Push-to-talk over cellular (PoC) devices</li><li>Two-way radios</li><li>Repeaters and base stations</li><li>Vehicle and desk-mounted radios</li><li>Batteries, chargers and docks</li><li>Earpieces, headsets and accessories</li></ul>
         <div class="sp-act"><a class="xbtn dk" href="request-a-quote.html?area=comms"><span class="l">Enquire</span><span class="a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></a></div></div>
       <figure class="sp-ph"><img src="assets/0f821b8df4e0.webp" alt="" loading="lazy" decoding="async"><figcaption><b>01</b>Business communications</figcaption></figure>
     </article><article class="sp-row flip" id="cng">
-      <div class="sp-tx"><span class="sp-n">02 / 04</span><h2>CNG equipment</h2><p>Selected CNG-related equipment for vehicle conversion, fleet refuelling and industrial use.</p>
+      <div class="sp-tx"><span class="sp-n">02 / 05</span><h2>CNG equipment</h2><p>Selected CNG-related equipment for vehicle conversion, fleet refuelling and industrial use.</p>
         <p class="sp-k">What we can source</p><ul class="sp-sc"><li>Vehicle conversion kits</li><li>CNG storage cylinders</li><li>Compressors and dispensers</li><li>Cascade storage systems</li><li>Regulators, valves and fittings</li><li>Workshop and testing equipment</li></ul>
         <div class="sp-act"><a class="xbtn dk" href="request-a-quote.html?area=cng"><span class="l">Enquire</span><span class="a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></a></div></div>
       <figure class="sp-ph"><img src="assets/84393125ffcb.webp" alt="" loading="lazy" decoding="async"><figcaption><b>02</b>CNG equipment</figcaption></figure>
     </article><article class="sp-row" id="elevators">
-      <div class="sp-tx"><span class="sp-n">03 / 04</span><h2>Elevators &amp; vertical transport</h2><p>Elevator and vertical-transport systems, specified to your building and delivered through qualified engineering partners.</p>
+      <div class="sp-tx"><span class="sp-n">03 / 05</span><h2>Elevators &amp; vertical transport</h2><p>Elevator and vertical-transport systems, specified to your building and delivered through qualified engineering partners.</p>
         <p class="sp-k">What we can source</p><ul class="sp-sc"><li>Passenger elevators</li><li>Goods and service elevators</li><li>Hospital and bed elevators</li><li>Home and low-rise lifts</li><li>Escalators and moving walks</li><li>Modernisation components</li></ul>
         <div class="sp-act"><a class="xbtn dk" href="request-a-quote.html?area=lift"><span class="l">Enquire</span><span class="a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></a></div></div>
       <figure class="sp-ph"><img src="assets/d80ddfe30282.webp" alt="" loading="lazy" decoding="async"><figcaption><b>03</b>Elevators &amp; vertical transport</figcaption></figure>
     </article><article class="sp-row flip" id="solar">
-      <div class="sp-tx"><span class="sp-n">04 / 04</span><h2>Solar energy</h2><p>Solar modules, inverters, energy storage and supporting power equipment, sized and specified against your site.</p>
+      <div class="sp-tx"><span class="sp-n">04 / 05</span><h2>Solar energy</h2><p>Solar modules, inverters, energy storage and supporting power equipment, sized and specified against your site.</p>
         <p class="sp-k">What we can source</p><ul class="sp-sc"><li>Solar PV modules</li><li>Inverters: off-grid, hybrid and grid-tied</li><li>Battery energy storage</li><li>Mounting structures</li><li>Balance of system and protection</li><li>Monitoring and metering</li></ul>
         <div class="sp-act"><a class="xbtn dk" href="request-a-quote.html?area=solar"><span class="l">Enquire</span><span class="a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></a></div></div>
       <figure class="sp-ph"><img src="assets/de6c14897905.webp" alt="" loading="lazy" decoding="async"><figcaption><b>04</b>Solar energy</figcaption></figure>
+    </article><article class="sp-row" id="tractors">
+      <div class="sp-tx"><span class="sp-n">05 / 05</span><h2>Tractors</h2><p>Farm tractors and implements for agriculture, estates and agro-processing, matched to your land and the work it needs.</p>
+        <p class="sp-k">What we can source</p><ul class="sp-sc"><li>Utility and row-crop tractors</li><li>2WD and 4WD models</li><li>Ploughs, harrows and planters</li><li>Trailers and haulage equipment</li><li>Spare parts and service kits</li><li>Operator handover</li></ul>
+        <div class="sp-act"><a class="xbtn dk" href="request-a-quote.html?area=tractor"><span class="l">Enquire</span><span class="a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></a></div></div>
+      <figure class="sp-ph"><img src="assets/d33ecaeb93e2.webp" alt="" loading="lazy" decoding="async"><figcaption><b>05</b>Tractors</figcaption></figure>
     </article></div>
 </section>
+
+<!-- ── Areas · 02b Partners ─────────────────────── -->
+<section class="sp-ptn" aria-label="Partners"><div class="sp-ptn-in"><div class="pt-strip"><div class="pt-head"><p class="pt-k"><i></i>Partners</p><p class="pt-note">The manufacturers and brands we work with.</p></div><ul class="pt-list"><li class="pt-t"><span class="pt-logos"><img class="pl-technova" src="assets/4c57b88a0651.png" alt="Technova" style="height:26px" loading="lazy" decoding="async"></span></li><li class="pt-t"><span class="pt-logos"><img class="pl-zubayada" src="assets/3595c51a5b8c.png" alt="Zubayada Commerce" style="height:31px" loading="lazy" decoding="async"><b class="pt-word" aria-hidden="true">Zubayada</b></span></li><li class="pt-t"><span class="pt-logos"><img class="pl-motozen" src="assets/c10e17db9476.png" alt="Motozen CNG" style="height:18px" loading="lazy" decoding="async"></span></li><li class="pt-t"><span class="pt-logos"><img class="pl-exprex" src="assets/a7b20a759ff4.png" alt="ExpreX Elevator" style="height:34px" loading="lazy" decoding="async"></span></li><li class="pt-t"><span class="pt-logos"><img class="pl-xtrapower" src="assets/697a5cfddd97.png" alt="Xtra Power" style="height:35px" loading="lazy" decoding="async"></span></li><li class="pt-t"><span class="pt-logos"><img class="pl-lovol" src="assets/7860acd1d3f0.png" alt="Lovol" style="height:19px" loading="lazy" decoding="async"></span></li></ul></div></div></section>
 
 <!-- ── Areas · 03 Compare ─────────────────────────── -->
 <section class="spt" id="compare" aria-labelledby="spt-h">
@@ -949,7 +1004,9 @@ a{color:inherit}
       <div class="svc-b"><p class="svc-k">Verified before an offer</p><ol class="svc-l"><li><i aria-hidden="true"></i>Site engineering</li><li><i aria-hidden="true"></i>Installation and commissioning</li><li><i aria-hidden="true"></i>Statutory inspection</li><li><i aria-hidden="true"></i>Maintenance responsibility</li></ol></div>
       <a class="svc-f" href="request-a-quote.html?area=lift">Enquire about elevators<span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></a></article><article class="svc"><div class="svc-h"><span class="svc-n">04</span><h3>Solar energy</h3></div>
       <div class="svc-b"><p class="svc-k">Verified before an offer</p><ol class="svc-l"><li><i aria-hidden="true"></i>Technical sizing</li><li><i aria-hidden="true"></i>Installation responsibility</li><li><i aria-hidden="true"></i>Warranty terms</li><li><i aria-hidden="true"></i>Availability and lead time</li></ol></div>
-      <a class="svc-f" href="request-a-quote.html?area=solar">Enquire about solar<span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></a></article></div>
+      <a class="svc-f" href="request-a-quote.html?area=solar">Enquire about solar<span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></a></article><article class="svc"><div class="svc-h"><span class="svc-n">05</span><h3>Tractors</h3></div>
+      <div class="svc-b"><p class="svc-k">Verified before an offer</p><ol class="svc-l"><li><i aria-hidden="true"></i>Horsepower and implements</li><li><i aria-hidden="true"></i>Assembly and pre-delivery checks</li><li><i aria-hidden="true"></i>Parts and service support</li><li><i aria-hidden="true"></i>Warranty terms</li></ol></div>
+      <a class="svc-f" href="request-a-quote.html?area=tractor">Enquire about tractors<span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></a></article></div>
   </div>
 </section>
 
@@ -987,7 +1044,7 @@ a{color:inherit}
 <footer class="ft">
   <div class="ft-top">
     <div class="ft-about"><p>Equipment sourcing, supply and technology-support solutions for businesses, institutions and projects in Nigeria.</p></div>
-    <nav class="ft-col" aria-label="Supply areas"><h4>Supply areas</h4><a href="supply-areas.html#communications">Business communications</a><a href="supply-areas.html#cng">CNG equipment</a><a href="supply-areas.html#elevators">Elevators &amp; vertical transport</a><a href="supply-areas.html#solar">Solar energy</a></nav>
+    <nav class="ft-col" aria-label="Supply areas"><h4>Supply areas</h4><a href="supply-areas.html#communications">Business communications</a><a href="supply-areas.html#cng">CNG equipment</a><a href="supply-areas.html#elevators">Elevators &amp; vertical transport</a><a href="supply-areas.html#solar">Solar energy</a><a href="supply-areas.html#tractors">Tractors</a></nav>
     <nav class="ft-col" aria-label="Company"><h4>Company</h4><a href="about.html">About</a><a href="index.html#how">How we work</a><a href="partnerships.html">Partnerships</a><a href="contact.html">Contact</a></nav>
     <nav class="ft-col" aria-label="Legal"><h4>Legal</h4><a href="privacy.html">Privacy notice</a></nav>
   </div>
@@ -1280,6 +1337,33 @@ a{color:inherit}
     var cl=new THREE.PointLight(C.green,0,4);car.add(cl);
     return {group:g,mats:[M.car],anchor:V(0,Hs+1.1,0),h:Hs+.7,car:car,carLight:cl,Hs:Hs};
   }
+  function makeTractor(){
+    var g=new THREE.Group();
+    rbox(3.9,.12,2.7,M.base,0,.06,0,g);
+    var tyre=std({color:0x0e2223,roughness:.92,metalness:0});
+    var wheels=[];
+    function wheel(x,z,r,w){var wg=new THREE.Group();wg.position.set(x,.12+r,z);g.add(wg);
+      var t=new THREE.Mesh(new THREE.CylinderGeometry(r,r,w,40),tyre);t.rotation.x=Math.PI/2;t.castShadow=t.receiveShadow=true;wg.add(t);
+      for(var k=0;k<14;k++){var a=k/14*Math.PI*2,lug=new THREE.Mesh(new THREE.BoxGeometry(.07,.07,w*.96),tyre);lug.position.set(Math.cos(a)*r,Math.sin(a)*r,0);lug.rotation.z=a;wg.add(lug)}
+      var hb=new THREE.Mesh(new THREE.CylinderGeometry(r*.55,r*.55,w+.02,32),M.metalDark);hb.rotation.x=Math.PI/2;wg.add(hb);
+      var cap=new THREE.Mesh(new THREE.CylinderGeometry(r*.2,r*.2,w+.06,16),M.metal);cap.rotation.x=Math.PI/2;wg.add(cap);
+      wheels.push(wg);return wg}
+    wheel(-.95,.98,.82,.5);wheel(-.95,-.98,.82,.5);wheel(1.2,.84,.48,.3);wheel(1.2,-.84,.48,.3);
+    rbox(2.7,.34,.86,M.tile,.15,.78,0,g,false,.05);
+    var hood=rbox(1.55,.62,.92,M.tank,.95,1.26,0,g,false,.12);
+    for(var v=0;v<4;v++)box(.012,.4,.7,M.band,1.73,1.1+v*.0,0,g,true);
+    box(.02,.36,.66,M.metalDark,1.73,1.18,0,g,true);
+    rbox(.9,.5,1.02,M.tank,-.62,1.2,0,g,false,.08);
+    [[.2,1],[.2,-1],[-1.35,1],[-1.35,-1]].forEach(function(p){box(.06,1.2,.06,M.metalDark,p[0]*1,2.0,p[1]*.5,g)});
+    var cab=mesh(new THREE.BoxGeometry(1.55,1.18,1.0),M.glass,-.58,2.0,0,g,true);cab.renderOrder=2;
+    rbox(1.75,.12,1.18,M.baseDark,-.58,2.64,0,g,false,.04);
+    [[-.95,.98],[-.95,-.98]].forEach(function(p){var fd=mesh(new THREE.CylinderGeometry(.9,.9,.54,32,1,true,Math.PI/2,Math.PI),M.tile,p[0],.94,p[1],g);fd.rotation.x=Math.PI/2;fd.rotation.y=0;fd.material=M.tile});
+    var ex=mesh(new THREE.CylinderGeometry(.05,.05,1.0,12),M.metalDark,.6,2.0,.32,g);
+    mesh(new THREE.CylinderGeometry(.065,.05,.1,12),M.metal,.6,2.52,.32,g);
+    var lamp=glow(.42,C.green,0);lamp.position.set(1.78,1.42,0);g.add(lamp);
+    var beacon=glow(.34,0xbff5d6,.85);beacon.position.set(-.58,2.78,0);g.add(beacon);
+    return {group:g,mats:[M.tank],anchor:V(0,3.25,0),h:2.75,wheels:wheels,lamp:lamp};
+  }
   function makeHub(){
     var g=new THREE.Group();
     rbox(1.9,.42,1.9,M.base,0,.21,0,g,false,.07);rbox(1.3,.32,1.3,M.tile,0,.58,0,g,false,.05);
@@ -1359,12 +1443,13 @@ a{color:inherit}
   function X(u,v){return [v-6,6-u]}           // 2D plan (u,v) → world (x,z)
   makeSlab(12,.55);
   var hub=makeHub();scene.add(hub.group);
-  var solar=makeSolar(),mast=makeMast(),cng=makeCNG(),lift=makeLift();
+  var solar=makeSolar(),mast=makeMast(),cng=makeCNG(),lift=makeLift(),trac=makeTractor();trac.group.scale.setScalar(.82);
   var AREAS=[
     {m:solar,at:[9.05,9.0],route:[[6,6],[6,8.9],[7.05,8.9]]},
     {m:mast, at:[2.2,2.6], route:[[6,6],[6,2.7],[2.95,2.7]]},
     {m:cng,  at:[3.03,9.02],route:[[6,6],[3.05,6],[3.05,8.25]]},
-    {m:lift, at:[8.6,1.6], route:[[6,6],[8.6,6],[8.6,2.45]]}
+    {m:lift, at:[8.6,1.6], route:[[6,6],[8.6,6],[8.6,2.45]]},
+    {m:trac, at:[10.45,5.15],route:[[6,6],[8.6,6],[8.6,5.15],[8.95,5.15]]}
   ];
   AREAS.forEach(function(a,k){
     var p=X(a.at[0],a.at[1]);a.m.group.position.set(p[0],0,p[1]);scene.add(a.m.group);
@@ -1394,12 +1479,13 @@ a{color:inherit}
   var anchors=AREAS.map(function(a){return a.m.anchor.clone().add(a.m.group.position)});
 
   /* state */
-  var ORDER=[1,2,3,0],state=1,stateT0=performance.now(),running=false,raf=0,visible=true,paused=reduce,resumeT=0,DUR=4200;
+  var ORDER=[1,2,3,0,4],state=1,stateT0=performance.now(),running=false,raf=0,visible=true,paused=reduce,resumeT=0,DUR=4200;
   var tabs=[].slice.call(document.querySelectorAll('.steps button')),stepsEl=document.querySelector('.steps');
   function setState(i,user){
     state=i;stateT0=performance.now();
     tabs.forEach(function(b,k){b.setAttribute('aria-selected',+b.dataset.i===i?'true':'false');var t=b.querySelector('.t i');t.style.animation='none';void t.offsetWidth;t.style.animation=''});
     labelNodes.forEach(function(n,k){n.classList.toggle('on',k===i);n.classList.toggle('off',k!==i)});
+    if(stepsEl.scrollWidth>stepsEl.clientWidth+2){var ab=tabs.filter(function(b){return +b.dataset.i===i})[0];if(ab)stepsEl.scrollTo({left:Math.max(0,ab.offsetLeft-stepsEl.offsetLeft-16),behavior:reduce?'auto':'smooth'})}
     if(user){paused=true;stepsEl.classList.add('paused');clearTimeout(resumeT);resumeT=setTimeout(function(){paused=reduce;if(!reduce)stepsEl.classList.remove('paused');stateT0=performance.now()},9000)}
     if(!running) frame(performance.now(),true);
   }
@@ -1428,6 +1514,7 @@ a{color:inherit}
     mast.rings.forEach(function(r,j){var ph=reduce?(j+1)/3.5:((t*.35+j/3)%1);var s=.4+ph*2.6;r.scale.set(s,s,s);r.material.opacity=(.18+.6*AREAS[1].amt)*(1-ph)});
     var ph=reduce?.6:(Math.sin(t*.6)*.5+.5);lift.car.position.y=.85+ph*(lift.Hs-1.5);lift.carLight.intensity=1.2*AREAS[3].amt;
     cng.lamps.forEach(function(l,j){l.material.opacity=AREAS[2].amt*(reduce?.6:.45+.25*Math.sin(t*1.6-j*.6))});
+    if(!reduce)trac.wheels.forEach(function(w){w.rotation.z=-t*.5});trac.lamp.material.opacity=AREAS[4].amt*(reduce?.7:.5+.25*Math.sin(t*2.2));
     M.panel.emissive=M.panel.emissive||new THREE.Color();
     hub.top.material.opacity=.45+(reduce?0:.12*Math.sin(t*1.6));
     dust(dt,t);
@@ -1435,7 +1522,7 @@ a{color:inherit}
     // labels follow
     anchors.forEach(function(v,i){var s=toScreen(v);labelNodes[i].style.left=s[0]+'px';labelNodes[i].style.top=s[1]+'px';labelNodes[i].classList.toggle('below',!!AREAS[i].m.below)});labelsEl.classList.add('ready');
   }
-  function loop(now){if(!running)return;frame(now);if(!paused&&now-stateT0>DUR)setState(ORDER[(ORDER.indexOf(state)+1)%4],false);raf=requestAnimationFrame(loop)}
+  function loop(now){if(!running)return;frame(now);if(!paused&&now-stateT0>DUR)setState(ORDER[(ORDER.indexOf(state)+1)%5],false);raf=requestAnimationFrame(loop)}
   function start(){if(running||reduce)return;running=true;last=performance.now();raf=requestAnimationFrame(loop)}
   function stop(){running=false;cancelAnimationFrame(raf)}
   function onResize(){resizeGL();placeTabs(Math.max(toScreen(V(-6,-.55,6))[1],toScreen(V(6,-.55,6))[1],toScreen(V(6,-.55,-6))[1]));if(!running)frame(performance.now(),true)}
@@ -1445,6 +1532,46 @@ a{color:inherit}
   document.addEventListener('visibilitychange',function(){document.hidden?stop():(visible&&start())});
 })();
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

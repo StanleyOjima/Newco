@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>About · NewCo Solutions</title>
-<meta name="description" content="NEWCO SOLUTION LTD (RC 9826940) sources business communications, CNG, elevator and solar equipment for businesses, institutions and projects in Nigeria.">
+<meta name="description" content="NEWCO SOLUTION LTD (RC 9826940) sources business communications, CNG, elevator, solar and tractor equipment for businesses, institutions and projects in Nigeria.">
 <meta name="theme-color" content="#162F31"><meta property="og:type" content="website"><meta property="og:site_name" content="NewCo Solutions">
 <meta property="og:title" content="About · NewCo Solutions"><meta property="og:description" content="A Nigerian company building dependable equipment supply routes.">
 <meta property="og:image" content="https://www.newcosolutions.org/og-image.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://www.newcosolutions.org/og-image.jpg">
@@ -187,6 +187,8 @@ a{color:inherit}
 @media (prefers-reduced-motion:reduce){
   .steps button[aria-selected="true"] .t i{animation:none;transform:scaleX(1)}
 }
+
+
 
 
 
@@ -615,7 +617,9 @@ a{color:inherit}
   /* 03 preparing an enquiry: pick an area right above the brief */
   .enq-wrap{display:flex;flex-direction:column;align-items:stretch;gap:0}
   .enq-copy{display:contents}
-  .enq-tabs{order:3;display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:26px 0 16px;max-width:none}
+  .enq-tabs{order:3;display:flex;flex-wrap:nowrap;gap:8px;margin:26px calc(var(--edge)*-1) 16px;padding:0 var(--edge) 2px;max-width:none;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:none}
+  .enq-tabs::-webkit-scrollbar{display:none}
+  .enq-tabs button{flex:none;scroll-snap-align:start}
   .enq-tabs button{--cut:10px;gap:10px;padding:13px 12px;font-size:14.5px;min-height:0}
   .enq-tabs button svg{width:18px;height:18px;flex:none}
   .enq-vis{order:4;width:100%;max-width:none;padding:0;background:none;clip-path:none}
@@ -907,7 +911,7 @@ a{color:inherit}
   <div class="hero-copy">
     <nav class="crumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><b>About</b></nav>
     <h1 id="hero-h">A Nigerian company building dependable supply routes.</h1>
-    <p class="lead">We source business communications, CNG, elevator and solar equipment for businesses, institutions and projects in Nigeria, and set out every party&rsquo;s responsibility in writing.</p>
+    <p class="lead">We source business communications, CNG, elevator, solar and tractor equipment for businesses, institutions and projects in Nigeria, and set out every party&rsquo;s responsibility in writing.</p>
     <div class="actions">
       <a class="xbtn dk" href="request-a-quote.html"><span class="l">Discuss a requirement</span><span class="a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></a>
       
@@ -1015,7 +1019,7 @@ a{color:inherit}
 <footer class="ft">
   <div class="ft-top">
     <div class="ft-about"><p>Equipment sourcing, supply and technology-support solutions for businesses, institutions and projects in Nigeria.</p></div>
-    <nav class="ft-col" aria-label="Supply areas"><h4>Supply areas</h4><a href="supply-areas.html#communications">Business communications</a><a href="supply-areas.html#cng">CNG equipment</a><a href="supply-areas.html#elevators">Elevators &amp; vertical transport</a><a href="supply-areas.html#solar">Solar energy</a></nav>
+    <nav class="ft-col" aria-label="Supply areas"><h4>Supply areas</h4><a href="supply-areas.html#communications">Business communications</a><a href="supply-areas.html#cng">CNG equipment</a><a href="supply-areas.html#elevators">Elevators &amp; vertical transport</a><a href="supply-areas.html#solar">Solar energy</a><a href="supply-areas.html#tractors">Tractors</a></nav>
     <nav class="ft-col" aria-label="Company"><h4>Company</h4><a href="about.html">About</a><a href="index.html#how">How we work</a><a href="partnerships.html">Partnerships</a><a href="contact.html">Contact</a></nav>
     <nav class="ft-col" aria-label="Legal"><h4>Legal</h4><a href="privacy.html">Privacy notice</a></nav>
   </div>
@@ -1539,6 +1543,14 @@ a{color:inherit}
   document.addEventListener('visibilitychange',function(){document.hidden?stop():(visible&&start())});
 })();
 </script>
+
+
+
+
+
+
+
+
 
 
 
